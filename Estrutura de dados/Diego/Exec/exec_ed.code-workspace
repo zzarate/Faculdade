@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://wsl+ubuntu/mnt/d/Users/jvzar/OneDrive/Documentos/GitHub/UFMS/Estrutura de dados/Diego"
+		}
+	],
+	"remoteAuthority": "wsl+Ubuntu",
+	"settings": {
+		"files.associations": {
+			"new": "cpp"
+		}
+	}
+}
