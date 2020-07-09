@@ -15,7 +15,7 @@ void Huffman::frequencia(std::vector<char> arq)
     }
 }
 
-//Testar -- Monta árvore huffman
+//Monta árvore huffman
 Node *Huffman::HuffmanTree(MinHeap h)
 {
     while (h.size() > 1)
@@ -27,15 +27,4 @@ Node *Huffman::HuffmanTree(MinHeap h)
         h.insert(new_node);
     }
     return h.extract();
-
-    /*
-    while (h.size()<1)
-    {
-        Node *n = new Node();
-        n->l=h.extract();
-        n->r=h.extract();
-        n->f= n->r->f + n->l->f;
-        h.insert(n);
-    }*/
-    //return h.extract();
 }

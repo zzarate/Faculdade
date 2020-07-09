@@ -49,17 +49,15 @@ void MinHeap::up(int i)
 
 void MinHeap::down(int i)
 {
-    int l, r, smlr, k;
+    int l, r, smlr;
     l = left(i);
     r = right(i);
-    k = size();
-    smlr = i;
 
-    if (l < k && v[l] < v[i])
+    if (l < size() && v[l]->freq() < v[i]->freq())
         smlr = l;
     else
         smlr = i;
-    if (r < k && v[r] < v[smlr])
+    if (r < size() && v[r]->freq() < v[smlr]->freq())
         smlr = r;
     if (smlr != i)
     {

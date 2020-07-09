@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
             Node *no = new Node(it.second, it.first);
             heap.insert(no);
         }
-        huff.freq.clear();//Limpa a hash usada para contar a frequencia
-        //Cria a arvore Huffman
-        Node *huff_tree = huff.HuffmanTree(heap);
+        huff.freq.clear();                        //Limpa a hash usada para contar a frequencia
+        Node *huff_tree = huff.HuffmanTree(heap); //Cria a arvore Huffman
+        //pre ordem fazer
 
         /* code */
     }
