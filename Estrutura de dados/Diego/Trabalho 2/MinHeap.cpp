@@ -40,7 +40,7 @@ Node *MinHeap::extract(void)
 
 void MinHeap::up(int i)
 {
-    if (i && v[parent(i)] < v[i])
+    if (v[parent(i)]->freq() > v[i]->freq())
     {
         std::swap(v[i], v[parent(i)]);
         up(parent(i));

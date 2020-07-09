@@ -40,15 +40,17 @@ int main(int argc, char *argv[])
         }
         huff.freq.clear();                        //Limpa a hash usada para contar a frequencia
         Node *huff_tree = huff.HuffmanTree(heap); //Cria a arvore Huffman
-        //pre ordem fazer
+        //Faz em ondem
+        huff.codeTable(huff_tree,"");
 
         /* code */
     }
     else if (*argv[1] == 'd')
     {
         Arquivo arq_entrada(argv[2], 'r'); //Cria um objeto e abre o arquivo passado como parametro
+        arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
+
         /* code */
-        arq_entrada.~Arquivo();
     }
     else
     {

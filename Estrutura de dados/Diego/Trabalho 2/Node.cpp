@@ -37,4 +37,8 @@ Node *Node::right(void)
 
 bool Node::leaf(void)
 {
+    if (l == NULL && r == NULL)
+        return true;
+    else
+        return false;
 }

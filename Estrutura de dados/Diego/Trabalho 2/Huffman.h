@@ -13,13 +13,12 @@ typedef std::map<unsigned char, std::string> htable;
 class Huffman
 {
 public:
-    void frequencia(std::vector<char> arq); //Conta a frequencia do elementos do vetor passador(arq) e armazena em uma tabela hash(freq)
-    Node *HuffmanTree(MinHeap h);           //Monta arvore Huffman
-    std::map<unsigned char, int> freq;      //Armazena a frequencia de elementos em uma hash
-    htable huff_table;
+    void frequencia(std::vector<char> arq);  //Conta a frequencia do elementos do vetor passador(arq) e armazena em uma tabela hash(freq)
+    void codeTable(Node *no, std::string s); //Monta a tabela de codigos
+    Node *HuffmanTree(MinHeap h);            //Monta arvore Huffman
 
-private:
-    void inOrder(Node *no); //Realiza o percurso em ordem
+    std::map<unsigned char, int> freq; //Armazena a frequencia de elementos em uma hash
+    htable huff_table;                 //Tabela hash da tabela de vodigos
 };
 
 #endif

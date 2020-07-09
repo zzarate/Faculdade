@@ -28,3 +28,15 @@ Node *Huffman::HuffmanTree(MinHeap h)
     }
     return h.extract();
 }
+
+void Huffman::codeTable(Node *no, std::string s)
+{
+    if (no->leaf())
+    {
+        hentry entrada(no->code(), s);
+        huff_table.insert(entrada);
+        return;
+    }
+    codeTable(no->left(), s + '0');
+    codeTable(no->right(), s + '1');
+}
