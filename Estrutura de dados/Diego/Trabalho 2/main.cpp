@@ -7,10 +7,14 @@
 ***************************************************/
 
 #include <iostream>
+#include "Arquivo.h"
+#include "Huffman.h"
+#include "Node.h"
 
 int main(int argc, char *argv[])
 {
-    if (argc != 4)
+    //Verifica se todos os parametros foram passados
+    if (argc < 4)
     {
         std::cout << "Erro! Deve-se passar 3 argumentos:\n";
         std::cout << "Operação a ser realizada (c ou d), ";
@@ -18,13 +22,33 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
+    //Verifica qual operação para ser executada foi passada (c= compactar, d= descompactar)
     if (*argv[1] == 'c')
     {
+        Arquivo arq_entrada(argv[2], 'r'); //Cria um objeto e abre o arquivo passado como parametro
+        arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
+
+        //Conta a frequencia do elementos e armazena em uma tabela hash
+        Huffman huff; //Objeto da classe Huffman
+        huff.frequencia(arq_entrada.buffer);
+        MinHeap heap; //Objeto da classe Min Heap
+        //Envia a frequencia dos caracteres para min heap
+        for (auto &it : huff.freq)
+        {
+            Node *no = new Node(it.second, it.first);
+            heap.insert(no);
+        }
+        huff.freq.clear();//Limpa a hash usada para contar a frequencia
+        //Cria a arvore Huffman
+        Node *huff_tree = huff.HuffmanTree(heap);
+
         /* code */
     }
     else if (*argv[1] == 'd')
     {
+        Arquivo arq_entrada(argv[2], 'r'); //Cria um objeto e abre o arquivo passado como parametro
         /* code */
+        arq_entrada.~Arquivo();
     }
     else
     {
