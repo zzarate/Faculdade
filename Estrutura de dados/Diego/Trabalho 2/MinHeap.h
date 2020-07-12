@@ -14,9 +14,8 @@ private:
   int right(int i);      // Filho direito
 
 public:
-  MinHeap();            // Construtor padrão
-  ~MinHeap();           // Destrutor padrão
-  int size(void);       // Tamanho da heap
-  void insert(Node *n); // Inserir elemento
-  Node *extract(void);  // Remover (menor) elemento
+  int size(void);       // Tamanho da heap, devolve tamnho da heap
+  void insert(Node *n); // Inserir elemento, insere no passado como parametro na heap
+  Node *extract(void);  // Remover (menor) elemento e devolve ele
+  void limpa(Node *x);  //Deleta arvore Huffman, recebe raiz da arvore
 };

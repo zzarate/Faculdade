@@ -38,17 +38,20 @@ int main(int argc, char *argv[])
             Node *no = new Node(it.second, it.first);
             heap.insert(no);
         }
-        huff.freq.clear();                        //Limpa a hash usada para contar a frequencia
-        Node *huff_tree = huff.HuffmanTree(heap); //Cria a arvore Huffman
-        //Faz em ondem
-        huff.codeTable(huff_tree,"");
+        huff.freq.clear();                            //Limpa a hash usada para contar a frequencia
+        Node *huff_tree = huff.HuffmanTree(heap);     //Cria a arvore Huffman
+        huff.codeTable(huff_tree, "");                //Monta tabela de codigos
+        huff.compacta(huff_tree, arq_entrada.buffer); //Compacta o arquivo de texto
 
-        /* code */
+        Arquivo arq_saida(argv[3], 'w'); //Cria aruivo de saida
+        arq_saida.Escrever(huff.buffer);  //Passa string com texto compatcado para gerar arquivo compactado
+        heap.limpa(huff_tree);            //Desaloca arvore Huffman
     }
     else if (*argv[1] == 'd')
     {
         Arquivo arq_entrada(argv[2], 'r'); //Cria um objeto e abre o arquivo passado como parametro
-        arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
+        arq_entrada.Ler();                  //Le os caracteres do arquivo de entrada
+        
 
         /* code */
     }
@@ -57,4 +60,6 @@ int main(int argc, char *argv[])
         std::cout << "Operação a ser realizada incorreta!";
         exit(1);
     }
+
+    exit(0);
 }

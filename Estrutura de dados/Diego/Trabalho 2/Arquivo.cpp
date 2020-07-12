@@ -15,7 +15,7 @@ Arquivo::Arquivo(char *nome_arq, char op)
             exit(1);
         }
         break;
-    /*Abre o arquivo para escrita*/
+        /*Abre o arquivo para escrita*/
     case 'w':
         if ((arquivo = fopen(nome_arq, "w")) == NULL)
         {
@@ -35,7 +35,7 @@ Arquivo::~Arquivo()
     fclose(arquivo);
 }
 
-/*Le o conteúdo do arquivo aberto*/
+//Realiza a leitura do arquivo
 void Arquivo::Ler()
 {
     char c; //Caractere lido
@@ -47,6 +47,18 @@ void Arquivo::Ler()
     buffer.pop_back();
 }
 
-void Arquivo::Escrever()
+//Escreve em um arquivo
+void Arquivo::Escrever(std::string texto)
 {
+    for (int i = 0; i < (int)texto.size(); i++)
+    {
+        std::string byte;
+        for (int j = 0; j < 8; j++)
+        {
+            byte += texto[j + i];
+        }
+        int saida = std::stoi(byte, nullptr, 2);
+        putc(saida, arquivo);
+        i += 7;
+    }
 }

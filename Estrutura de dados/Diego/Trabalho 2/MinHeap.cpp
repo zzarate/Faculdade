@@ -1,15 +1,12 @@
 #include "MinHeap.h"
 
-MinHeap::MinHeap()
+void MinHeap::limpa(Node *no)
 {
-}
-
-MinHeap::~MinHeap()
-{
-    int tamanho = v.size();
-    for (int i = 0; i < tamanho; i++)
+    if (no != NULL)
     {
-        delete (extract());
+        limpa(no->left());
+        limpa(no->right());
+        delete no;
     }
 }
 

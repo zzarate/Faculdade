@@ -31,7 +31,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/programa.out",
-            "args": ["d", "exemplo.txt", "teste.huff"],
+            "args": ["d", "teste.huff", "saida_huff.txt"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
