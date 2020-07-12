@@ -2,7 +2,7 @@
 
 void Huffman::frequencia(std::vector<char> arq)
 {
-    for (int i = 0; arq[i]; i++)
+    for (int i = 0; i < (int)arq.size(); i++)
     {
         if (freq.find(arq[i]) == freq.end())
         {
@@ -114,7 +114,7 @@ std::string Huffman::toBinary(unsigned char k, int n)
 
 void Huffman::writeText(std::vector<char> text, std::string *s)
 {
-    for (int i = 0; text[i]; i++)
+    for (int i = 0; i < (int)text.size(); i++)
     {
         *s += huff_table[text[i]];
     }

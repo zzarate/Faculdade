@@ -44,14 +44,13 @@ int main(int argc, char *argv[])
         huff.compacta(huff_tree, arq_entrada.buffer); //Compacta o arquivo de texto
 
         Arquivo arq_saida(argv[3], 'w'); //Cria aruivo de saida
-        arq_saida.Escrever(huff.buffer);  //Passa string com texto compatcado para gerar arquivo compactado
-        heap.limpa(huff_tree);            //Desaloca arvore Huffman
+        arq_saida.Escrever(huff.buffer); //Passa string com texto compatcado para gerar arquivo compactado
+        heap.limpa(huff_tree);           //Desaloca arvore Huffman
     }
     else if (*argv[1] == 'd')
     {
         Arquivo arq_entrada(argv[2], 'r'); //Cria um objeto e abre o arquivo passado como parametro
-        arq_entrada.Ler();                  //Le os caracteres do arquivo de entrada
-        
+        arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
 
         /* code */
     }
