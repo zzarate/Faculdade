@@ -4,5 +4,6 @@
 			"path": "."
 		}
 	],
+	"remoteAuthority": "wsl+Ubuntu",
 	"settings": {}
 }
