@@ -1,0 +1,7 @@
+/**
+ * @brief Classe 
+ * 
+ */
+class Expansao {
+
+};
