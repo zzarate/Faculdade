@@ -1,5 +1,5 @@
 #include "Backtracking.h"
 
-void insere(pilha caminho, celula cel) {
+void Backtracking::insere(pilha caminho, celula cel) {
 
 }
