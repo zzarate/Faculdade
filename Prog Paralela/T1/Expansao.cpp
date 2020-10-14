@@ -1,5 +1,5 @@
 #include "Expansao.h"
 
-void insere(fila, celula) {
-    
+void insere(queue<int> fila, celula cel) {
+
 }

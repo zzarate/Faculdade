@@ -4,12 +4,13 @@
  */
 
 #include <queue>
+#include "Grid.h"
 
 class Expansao
 {
 private:
     bool achou = false;
-    void insere(fila, celula);
+    void insere(queue<int> fila, celula cel);
 
 public:
 };
