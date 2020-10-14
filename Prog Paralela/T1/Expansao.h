@@ -2,6 +2,13 @@
  * @brief Classe 
  * 
  */
-class Expansao {
 
+#include <queue>
+
+class Expansao
+{
+private:
+    bool achou = false;
+
+public:
 };

@@ -12,6 +12,7 @@
 #include <iostream>
 #include "Arquivo.h"
 
+
 int main(int argc, char *argv[])
 {
     //Verifica se todos os parametros foram passados
