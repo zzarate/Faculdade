@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "Arquivo.h"
-
+#include "Grid.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,4 +24,6 @@ int main(int argc, char *argv[])
 
     Arquivo arq_entrada(argv[1], 'r'); //Cria um objeto e abre o arquivo passado como parametro
     arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
+
+    Grid grid(arq_entrada.buffer); //Cria grid e passa arquivo de entrada
 }

@@ -15,9 +15,9 @@ private:
 
     //Obstaculo
     unsigned int qnt_obstaculos;
-    std::vector <celula> obsta_cel_init;
- 
+    std::vector<celula> obsta_cel_init;
+
 public:
-    Grid(/* args */);
+    Grid(std::vector<char> info);
     ~Grid();
 };
