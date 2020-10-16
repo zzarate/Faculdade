@@ -13,5 +13,5 @@ private:
     std::queue<celula> fila;
 
 public:
-    void expandir(Grid grid, int origemi, int origemj);
+    void expandir(celula origem);
 };
