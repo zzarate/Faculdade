@@ -1,5 +1,6 @@
 #include "Expansao.h"
 
-void expandir(Grid grid, int origemi, int origemj) {
-    
+void expandir(celula origem) {
+    fila.push (origem);
+ 
 }

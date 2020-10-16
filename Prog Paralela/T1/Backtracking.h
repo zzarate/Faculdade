@@ -6,7 +6,6 @@
  */
 class Backtracking {
     private:
-    void insere(pilha caminho, celula cel);
 
     public:
 
