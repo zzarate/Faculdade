@@ -10,7 +10,8 @@ class Expansao
 {
 private:
     bool achou = false;
-    void insere(std::queue<int> fila, celula cel);
+    std::queue<celula> fila;
 
 public:
+    void expandir(Grid grid, int origemi, int origemj);
 };

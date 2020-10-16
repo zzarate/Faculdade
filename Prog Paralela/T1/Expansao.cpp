@@ -1,5 +1,5 @@
 #include "Expansao.h"
 
-void Expansao::insere(queue<int> fila, celula cel) {
-
+void expandir(Grid grid, int origemi, int origemj) {
+    
 }
