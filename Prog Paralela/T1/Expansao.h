@@ -10,7 +10,7 @@ class Expansao
 {
 private:
     bool achou = false;
-    void insere(queue<int> fila, celula cel);
+    void insere(std::queue<int> fila, celula cel);
 
 public:
 };
