@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author João Víctor Zárate, Julio Huang
- * @brief Trabalho 1 - Progrmação paralela
+ * @brief Trabalho 1 - Progrmação Paralela
  * @version 0.1
  * @date 2020-10-08
  * 

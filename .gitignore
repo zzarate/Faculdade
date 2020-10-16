@@ -1,7 +1,17 @@
 #VS code settings
-Estrutura de dados/Diego/Trabalho-1-ED/.vscode
-Prog Paralela/T1/debug.log
 
+#Estrutura de dados
 #Arquivo de teste
 Estrutura de dados/Diego/Trabalho-1-ED/teste.txts
 Estrutura de dados/Diego/Trabalho 2/programa.out
+
+Estrutura de dados/Diego/Trabalho-1-ED/.vscode
+
+#Programação paralela
+Prog Paralela/T1/debug.log
+Prog Paralela/T1/entrada.txt
+Prog Paralela/T1/saida-seq.txt
+Prog Paralela/T1/saida-par.txt
+
+
+
