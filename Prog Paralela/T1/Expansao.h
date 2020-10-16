@@ -13,5 +13,7 @@ private:
     std::queue<celula> fila;
 
 public:
+    Expansao(/* args */);
+    ~Expansao();
     void expandir(celula origem);
 };

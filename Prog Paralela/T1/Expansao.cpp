@@ -1,6 +1,17 @@
 #include "Expansao.h"
 
-void expandir(celula origem) {
+
+Expansao::Expansao(/* args */)
+{
+}
+
+Expansao::~Expansao()
+{
+}
+
+void Expansao::expandir(celula origem) {
     fila.push (origem);
+
+    
  
 }
