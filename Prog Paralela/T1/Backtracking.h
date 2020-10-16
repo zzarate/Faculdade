@@ -1,12 +1,18 @@
-#include "Grid.h"
-#include <vector>
 /**
  * @brief 
  * 
  */
-class Backtracking {
-    private:
 
-    public:
+#include "Grid.h"
+#include <vector>
 
+class Backtracking
+{
+private:
+    /* data */
+public:
+    Backtracking(/* args */);
+    ~Backtracking();
 };
+
+

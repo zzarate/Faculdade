@@ -7,16 +7,10 @@ public:
     Arquivo(char *nome_arq, char op);
     ~Arquivo();
     void Escrever(std::string texto);
-    void Ler();                       
+    void Ler();
 
-    /**
-     * @brief Armazena os caracteres lido do arquivo
-     */
-    std::vector<char> buffer;
+    std::vector<char> buffer; //Armazena os caracteres lido do arquivo
 
 private:
-    /**
-     * @brief Arquivo aberto
-     */
-    FILE *arquivo;
+    FILE *arquivo; //Arquivo aberto
 };

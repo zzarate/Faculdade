@@ -1,6 +1,6 @@
 #include "Expansao.h"
 
-void expandir(celula origem) {
+void Expansao::expandir(celula origem) {
 
     fila.push (origem);
     while (fila.empty() != 0 && !achou) {
@@ -15,4 +15,11 @@ void expandir(celula origem) {
             }
         }
     }
+
+Expansao::Expansao(/* args */)
+{
+}
+
+Expansao::~Expansao()
+{
 }
