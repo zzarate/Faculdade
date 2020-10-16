@@ -1,7 +1,8 @@
 #include "Grid.h"
 
-Grid::Grid(/* args */)
+Grid::Grid(std::vector<char> info)
 {
+    
 }
 
 Grid::~Grid()
