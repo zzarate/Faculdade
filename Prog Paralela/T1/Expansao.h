@@ -15,5 +15,5 @@ private:
 public:
     Expansao(/* args */);
     ~Expansao();
-    void expandir(celula origem);
+    void expandir(celula origem, celula destino);
 };
