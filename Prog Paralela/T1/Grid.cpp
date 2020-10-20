@@ -7,4 +7,5 @@ Grid::Grid(std::vector<char> info)
 
 Grid::~Grid()
 {
+    
 }

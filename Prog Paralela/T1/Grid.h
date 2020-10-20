@@ -7,8 +7,8 @@ typedef std::pair<unsigned int, unsigned int> celula; //Celula [i] [j];
 class Grid
 {
 private:
-    unsigned int colunas;
     unsigned int linhas;
+    unsigned int colunas;
 
     celula origem;
     celula destino;
