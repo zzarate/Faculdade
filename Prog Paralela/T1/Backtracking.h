@@ -5,11 +5,12 @@
 
 #include "Grid.h"
 #include <vector>
+#include <stack>
 
 class Backtracking
 {
 private:
-    /* data */
+    std::stack<celula> pilha;
 public:
     Backtracking(/* args */);
     ~Backtracking();
