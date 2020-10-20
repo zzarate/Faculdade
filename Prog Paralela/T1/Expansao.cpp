@@ -10,6 +10,7 @@ Expansao::Expansao(Grid grid)
 {
     celula cel;
 
+
     fila.push(origem);
     while (fila.empty() != 0 && !achou)
     {

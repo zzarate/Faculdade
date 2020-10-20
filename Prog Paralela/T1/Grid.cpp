@@ -26,7 +26,7 @@ long int Grid::leValor()
 
     do
     {
-        buffer +=
+        buffer;
     } while (c != ' ');
 
     delete buffer;
