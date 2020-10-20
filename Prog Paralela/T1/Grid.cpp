@@ -14,11 +14,30 @@ Grid::~Grid()
 }
 
 /**
+ * @brief Le dados separados por espaço e/ou "/n"
+ * 
+ * @return long int Valor lido
+ */
+long int Grid::leValor()
+{
+    std::string *buffer = new std::string(); //Sring temporaria
+    char c;                                  //Char lido do arquivo
+    long int dado;                           //Dado lido
+
+    do
+    {
+        buffer +=
+    } while (c != ' ');
+
+    delete buffer;
+}
+
+/**
  * @brief Retorna a quantidade de linhas do grid
  * 
- * @return unsigned int Quantidade de linhas do grid
+ * @return long int Quantidade de linhas do grid
  */
-unsigned int Grid::getLinhas()
+long int Grid::getLinhas()
 {
     return linhas;
 }
@@ -26,9 +45,9 @@ unsigned int Grid::getLinhas()
 /**
  * @brief Retorna a quantidade de colunas do grid
  * 
- * @return unsigned int Quantidade de colunas do grid
+ * @return long int Quantidade de colunas do grid
  */
-unsigned int Grid::getColunas()
+long int Grid::getColunas()
 {
     return colunas;
 }
