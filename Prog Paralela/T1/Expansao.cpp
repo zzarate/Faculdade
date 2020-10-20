@@ -8,25 +8,30 @@
  */
 Expansao::Expansao(Grid grid)
 {
-    celula cel;
-
-
-    fila.push(origem);
+    fila.push(grid.getOrigem()); //coloca origem na fila
     while (fila.empty() != 0 && !achou)
-    {
-        cel = fila.front();
-        fila.pop();                                   // Remove célula do início da fila
-        if (cel.i == destino.i && cel.j == destino.j) // cel é o destino
+    {   
+        celula cel, celDest;
+        cel = fila.front(); //acessa primeiro da fila
+        fila.pop();         // Remove célula do início da fila
+        celDest = grid.getDestino();
+        if (std::get<0>(cel) == std::get<0>(celDest) && std::get<1>(cel) == std::get<1>(celDest)) // cel é o destino
             achou = true;
         else
         {
             for (int k = 0; k < 4; k++)
             { // No máximo 4 vizinhos
-
-                if (Grid[viz.i][viz.j] == INT_MIN)
+                long int i, j; //i e j do vizinho;
+                i = vizinhoI(k, cel);
+                j = vizinhoJ(k, cel);
+                if(i < grid.linha && j < grid.coluna) 
                 {
-                    Grid[viz.i][viz.j] = Grid[cel.i][cel.j] + 1;
-                    fila.push(viz); // Insere célula viz no fim da fila
+                    if (grid[i][j] == INT_MIN) 
+                    {
+                        grid[i][j] = grid[std::get<0>(cel)][std::get<1>(cel)] + 1; //ver se a celula vizinho eh igual a celula atual
+                        celula viz (i, j); //crio uma celula viziho
+                        fila.push(viz); // Insere célula viz no fim da fila
+                    }
                 }
             }
         }
@@ -41,15 +46,40 @@ Expansao::~Expansao()
 {
 }
 
-int Expansao::vizinhoI(int k, celula cel)
+long int Expansao::vizinhoI(int k, celula cel)
 {
-    int i;
-    //...
-    return i;
+    switch (k)
+    {
+        case 0:
+            return std::get<0>(cel);
+        break;
+        case 1:
+            return std::get<0>(cel);
+        break;
+        case 2:
+            return std::get<0>(cel) + 1;
+        break;
+        case 3:
+            return std::get<0>(cel) - 1;
+        break;
+    }
+
 }
-int Expansao::vizinhoJ(int k, celula cel)
+long int Expansao::vizinhoJ(int k, celula cel)
 {
-    int j;
-    //...
-    return j;
+    switch (k)
+    {
+        case 0:
+            return std::get<1>(cel) - 1;
+        break;
+        case 1:
+            return std::get<1>(cel) + 1;
+        break;
+        case 2:
+            return std::get<1>(cel);
+        break;
+        case 3:
+            return std::get<1>(cel);
+        break;
+    }
 }

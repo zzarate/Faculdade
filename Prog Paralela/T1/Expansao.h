@@ -15,6 +15,6 @@ private:
 public:
     Expansao(Grid grid);
     ~Expansao();
-    int vizinhoI(int k, celula cel); //procurar o vizinho da celula e devover posicao i
-    int vizinhoJ(int k, celula cel); //procurar o vizinho da celula e devover posicao j
+    long int vizinhoI(int k, celula cel); //procurar o vizinho da celula e devover posicao i
+    long int vizinhoJ(int k, celula cel); //procurar o vizinho da celula e devover posicao j
 };
