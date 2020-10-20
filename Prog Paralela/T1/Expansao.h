@@ -13,7 +13,7 @@ private:
     std::queue<celula> fila;
 
 public:
-    Expansao(/* args */);
+    Expansao(Grid grid);
     ~Expansao();
     void expandir(celula origem, celula destino);
     int vizinhoI(int k, celula cel); //procurar o vizinho da celula e devover posicao i

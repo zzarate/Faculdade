@@ -10,6 +10,9 @@
  */
 
 #include <iostream>
+
+#include "Backtracking.h"
+#include "Expansao.h"
 #include "Arquivo.h"
 #include "Grid.h"
 
@@ -26,4 +29,5 @@ int main(int argc, char *argv[])
     arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
 
     Grid grid(arq_entrada.buffer); //Cria grid e passa arquivo de entrada
+    Expansao expand(grid);         //Cria expansão e passa o grid como argumento
 }
