@@ -51,7 +51,6 @@ void Arquivo::Ler()
         c = fgetc(arquivo);
         buffer.push_back(c); // Adicionado o caractere lido na última posição do array
     } while (c != EOF);
-    buffer.pop_back();
 }
 
 /**

@@ -7,29 +7,24 @@
  */
 Grid::Grid(std::vector<char> info)
 {
+    std::string *buffer = new std::string();
+    char c; //Caractere lido
+    
+    for (auto &&i : info)
+    {
+        do
+        {
+            /* code */
+        } while (c!= ' ');
+        
+    }
+    
+    
+    delete buffer;
 }
 
 Grid::~Grid()
 {
-}
-
-/**
- * @brief Le dados separados por espaço e/ou "/n"
- * 
- * @return long int Valor lido
- */
-long int Grid::leValor()
-{
-    std::string *buffer = new std::string(); //Sring temporaria
-    char c;                                  //Char lido do arquivo
-    long int dado;                           //Dado lido
-
-    do
-    {
-        buffer;
-    } while (c != ' ');
-
-    delete buffer;
 }
 
 /**
@@ -53,11 +48,21 @@ long int Grid::getColunas()
 }
 
 /**
+ * @brief Retorna o conteudo de uma celula
+ * 
+ * @param cell Celula a ser acessada
+ * @return long int Conteudo da celula
+ */
+long int Grid::getvalorCelula (celula cell){
+    return grid[cell.first][cell.second];
+}
+
+/**
  * @brief Retorna a celula de origem
  * 
  * @return celula Celula de origem
  */
-celula Grid::getOrigen()
+celula Grid::getOrigem()
 {
     return origem;
 }

@@ -14,8 +14,6 @@ private:
     long int linhas;  //Quantidade de linhas do grid
     long int colunas; //Quantidade de colunas do grid
 
-    long int leValor();
-
     celula origem;  //Celula de origem
     celula destino; //Celula de destino
 
@@ -27,6 +25,7 @@ public:
 
     long int getLinhas();
     long int getColunas();
+    long int getvalorCelula (celula cell);
     celula getOrigem();
     celula getDestino();
 };
