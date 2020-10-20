@@ -27,6 +27,6 @@ public:
 
     long int getLinhas();
     long int getColunas();
-    celula getOrigen();
+    celula getOrigem();
     celula getDestino();
 };
