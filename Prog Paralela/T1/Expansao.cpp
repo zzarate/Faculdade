@@ -15,20 +15,20 @@ Expansao::Expansao(Grid grid)
         cel = fila.front(); //acessa primeiro da fila
         fila.pop();         // Remove célula do início da fila
         celDest = grid.getDestino();
-        if (std::get<0>(cel) == std::get<0>(celDest) && std::get<1>(cel) == std::get<1>(celDest)) // cel é o destino
+        if (cel.first == celDest.first && cel.second == celDest.second) // cel é o destino
             achou = true;
         else
         {
             for (int k = 0; k < 4; k++)
             { // No máximo 4 vizinhos
-                long int i, j; //i e j do vizinho;
+                int i, j; //i e j do vizinho;
                 i = vizinhoI(k, cel);
                 j = vizinhoJ(k, cel);
-                if(i < grid.linha && j < grid.coluna) 
+                if(i < grid.linhas && j < grid.colunas) 
                 {
                     if (grid[i][j] == INT_MIN) 
                     {
-                        grid[i][j] = grid[std::get<0>(cel)][std::get<1>(cel)] + 1; //ver se a celula vizinho eh igual a celula atual
+                        grid[i][j] = grid[cel.first][cel.second] + 1; //ver se a celula vizinho eh igual a celula atual
                         celula viz (i, j); //crio uma celula viziho
                         fila.push(viz); // Insere célula viz no fim da fila
                     }
@@ -51,16 +51,16 @@ long int Expansao::vizinhoI(int k, celula cel)
     switch (k)
     {
         case 0:
-            return std::get<0>(cel);
+            return cel.first;
         break;
         case 1:
-            return std::get<0>(cel);
+            return cel.first;
         break;
         case 2:
-            return std::get<0>(cel) + 1;
+            return cel.first + 1;
         break;
         case 3:
-            return std::get<0>(cel) - 1;
+            return cel.first - 1;
         break;
     }
 
@@ -70,16 +70,16 @@ long int Expansao::vizinhoJ(int k, celula cel)
     switch (k)
     {
         case 0:
-            return std::get<1>(cel) - 1;
+            return cel.second - 1;
         break;
         case 1:
-            return std::get<1>(cel) + 1;
+            return cel.second + 1;
         break;
         case 2:
-            return std::get<1>(cel);
+            return cel.second;
         break;
         case 3:
-            return std::get<1>(cel);
+            return cel.second;
         break;
     }
 }

@@ -16,7 +16,7 @@ Grid::Grid(std::vector<char> info)
         {
             /* code */
         } while (c!= ' ');
-        
+        buffer;
     }
     
     
