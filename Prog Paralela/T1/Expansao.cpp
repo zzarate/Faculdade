@@ -21,7 +21,7 @@ Expansao::Expansao(Grid grid)
         {
             for (int k = 0; k < 4; k++)
             { // No máximo 4 vizinhos
-                int i, j; //i e j do vizinho;
+                long int i, j; //i e j do vizinho;
                 i = vizinhoI(k, cel);
                 j = vizinhoJ(k, cel);
                 if(i < grid.linhas && j < grid.colunas) 
