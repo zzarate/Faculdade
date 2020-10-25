@@ -7,9 +7,15 @@
  */
 Grid::Grid(std::vector<char> info)
 {
-    std::string *buffer = new std::string();
-    char c = NULL; //Caractere lido
-    int linha_arq; //Controle da linha do arquivo
+    int *i = 0;              //Controle de caractere lido do vetor
+    int quant_obstaculo = 0; //Numero de obstaculos no grid
+    linhas = salvaInfo(info, *i);
+    colunas = salvaInfo(info, *i);
+    origem.first = salvaInfo(info, *i);
+    origem.second = salvaInfo(info, *i);
+    quant_obstaculo = salvaInfo(info, *i);
+
+    /*
     for (auto &&i : info)
     {
         c = info[i]; //Armazena o caractere i de info no c
@@ -72,49 +78,45 @@ Grid::Grid(std::vector<char> info)
                         break;
                     }
                 }
-            } else //Caso seja a parte de obstaculos
-            {
-                /* code */
             }
-            
+            else //Caso seja a parte de obstaculos
+            {
+                if (linha_arq == 3)
+                {
+                    int quant_obstaculos = stoi(*buffer); //Salva a quantide de obstaculos
+                    buffer->clear();                      //Limpa o buffer
+                    linhas++;
+                } else
+                {
+                    if (c == ' '){
+                        
+                    }
+                }
+                
+            }
         }
-
-        /*
-        do//Pega a quantidade de linhas do grid
-        {
-            c=info[i];
-            buffer->push_back(c);
-        } while (c!= ' ');
-        linhas= stoi(*buffer);
-        buffer->clear(); //Limpa o buffer
-        
-        do//Pega a quantidade de colunas do grid
-        {
-            c=info[i];
-            buffer->push_back(c);
-        } while (c!= ' ' || c!= '\n');
-        colunas= stoi(*buffer);
-        buffer->clear();//Limpa o buffer
-
-        do//Pega a celula de origem i
-        {
-            c=info[i];
-            buffer->push_back(c);
-        } while (c!= ' ');
-        origem.first= stoi(*buffer);
-        buffer->clear();//Limpa o buffer
-
-        do//Pega a celula de origem j
-        {
-            c=info[i];
-            buffer->push_back(c);
-        } while (c!= ' ' || c!= '\n');
-        origem.second= stoi(*buffer);
-        buffer->clear();//Limpa o buffer
-    */
     }
+*/
+}
 
-    delete buffer;
+int Grid::salvaInfo(std::vector<char> info, int &i)
+{
+    std::string *buffer = new std::string(); //String temporaria
+    char c;                                  //Varialver auxiliar
+    do
+    {
+        c = info[i];
+        buffer->push_back(c);
+        i++;
+    } while (c != ' ' || c != '\n');
+    int dado_int = stoi(*buffer); //Converte a string em int
+    buffer->clear();              //Limpa o buffer
+    delete buffer;                //Deleta string criada
+    return dado_int;
+}
+
+void Grid::obstaculo()
+{
 }
 
 Grid::~Grid()

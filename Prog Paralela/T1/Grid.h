@@ -19,6 +19,9 @@ private:
 
     std::vector<std::vector<long int>> grid; //Grid
 
+    int salvaInfo (std::vector <char> info, int &i);
+    void obstaculo();
+
 public:
     Grid(std::vector<char> info);
     ~Grid();
