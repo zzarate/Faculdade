@@ -20,7 +20,7 @@ private:
     std::vector<std::vector<long int>> grid; //Grid
 
     int salvaInfo (std::vector <char> info, int &i);
-    void obstaculo();
+    void obstaculo(std::vector<char> info, int &i);
 
 public:
     Grid(std::vector<char> info);

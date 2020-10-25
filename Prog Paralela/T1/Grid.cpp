@@ -99,6 +99,13 @@ Grid::Grid(std::vector<char> info)
 */
 }
 
+/**
+ * @brief Salva tamanho, origem e destino do grid
+ * 
+ * @param info Vector<char> com os dados a serem lidos
+ * @param i Variavel de controle da posição do vetor a ser lido
+ * @return int Dado lido do vetor
+ */
 int Grid::salvaInfo(std::vector<char> info, int &i)
 {
     std::string *buffer = new std::string(); //String temporaria
@@ -115,7 +122,13 @@ int Grid::salvaInfo(std::vector<char> info, int &i)
     return dado_int;
 }
 
-void Grid::obstaculo()
+/**
+ * @brief Salva e preenche os obstaculos do grid
+ * 
+ * @param info 
+ * @param i 
+ */
+void Grid::obstaculo(std::vector<char> info, int &i)
 {
 }
 
