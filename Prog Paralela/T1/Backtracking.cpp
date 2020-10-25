@@ -1,19 +1,25 @@
 #include "Backtracking.h"
 
-Backtracking::Backtracking(/* args */)
+Backtracking::Backtracking(Grid grid)
 {
-    Caminho = vazio // Caminho da origem até o destino
     if (achou)
     {
-        cel = destino
-        insere(caminho, destino); // Insere destino no início do caminho
-        // Enquanto não chegar na origem
-        while (cel.i != origem.i || cel.j != origem.j)
+        celula cel;
+        cel = grid.getDestino();
+        pilha.push(grid.getDestino()); //coloca destino na pilha
+        
+        while (cel.first != grid.getOrigem().first || cel.second != grid.getOrigem().second) // Enquanto não chegar na origem
         {
-            Investiga 4 células vizinhas de cel e seleciona viz,
-            tal que Grid[viz.i][viz.j] == Grid[cel.i][cel.j] - 1
-            cel = viz
-            insere(Caminho, viz); // Insere célula viz no início do caminho
+            for (int k = 0; k < 4; k++)
+            { // No máximo 4 vizinhos
+                long int i, j; //i e j do vizinho;
+                i = vizinhoI(k, cel);
+                j = vizinhoJ(k, cel);
+                grid.grid[i][j] == grid.grid[cel.first][cel.second] - 1;
+                celula viz (i, j);
+                cel = viz;
+                pilha.emplace(cel); // Insere célula viz na pilha
+            }
         }
     }
 }
