@@ -9,7 +9,6 @@
 class Expansao
 {
 private:
-    bool achou = false;
     std::queue<celula> fila;
 
 public:

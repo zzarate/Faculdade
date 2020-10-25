@@ -2,7 +2,7 @@
 
 Backtracking::Backtracking(Grid grid)
 {
-    if (achou)
+    if (grid.achou)
     {
         celula cel;
         cel = grid.getDestino();
