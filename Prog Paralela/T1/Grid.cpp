@@ -150,7 +150,8 @@ long int Grid::vizinhoI(int k, celula cel)
         return cel.first - 1;
         break;
     }
-    return;
+    long int aux = -1;
+    return aux;
 }
 
 /**
@@ -177,6 +178,8 @@ long int Grid::vizinhoJ(int k, celula cel)
         return cel.second;
         break;
     }
+    long int aux = -1;
+    return aux;
 }
 
 /**
