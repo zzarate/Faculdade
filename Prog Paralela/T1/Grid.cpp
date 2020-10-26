@@ -177,6 +177,7 @@ long int Grid::vizinhoJ(int k, celula cel)
         return cel.second;
         break;
     }
+    return;
 }
 
 /**
