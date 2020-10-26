@@ -42,6 +42,8 @@ int main(int argc, char *argv[])
     tExec = tFin - tIni;    //Calcula o tempo que foi necessário para executar
     std::cout << "Tempo de execução: " << tExec << "\n";
 
+    //Imprimir menor caminho
+
     exit(0);
 }
 

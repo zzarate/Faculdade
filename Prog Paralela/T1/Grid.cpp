@@ -46,7 +46,7 @@ Grid::~Grid()
 int Grid::salvaInfo(std::vector<char> info, int &i)
 {
     std::string *buffer = new std::string(); //String temporaria
-    char c = '0';                           //Varialver auxiliar
+    char c = '0';                            //Varialver auxiliar
     do
     {
         c = info[i];
@@ -68,7 +68,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
 {
     int i_inicial, j_inicial, linhas, colunas;
     std::string *buffer = new std::string(); //String temporaria
-    char c = '0';                           //Varialver auxiliar
+    char c = '0';                            //Varialver auxiliar
 
     //Pega o indice i inicial
     do
@@ -115,9 +115,9 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     c = '0';
 
     //Preenche os retangulos com -1
-    for (int k = i_inicial; k < (i_inicial+linhas) -1; k++)
+    for (int k = i_inicial; k < (i_inicial + linhas) - 1; k++)
     {
-        for (int l = j_inicial; l < (j_inicial+colunas) -1; l++)
+        for (int l = j_inicial; l < (j_inicial + colunas) - 1; l++)
         {
             grid[k][l] = -1;
         }
