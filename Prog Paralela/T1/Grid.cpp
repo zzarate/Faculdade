@@ -49,10 +49,10 @@ int Grid::salvaInfo(std::vector<char> info, int &i)
     char c;                                  //Varialver auxiliar
     do
     {
-        c = info[i]; //Segmentation fault
+        c = info[i];
         buffer->push_back(c);
         i++;
-    } while (c != ' ' || c != '\n');
+    } while ((c != ' ') && (c != '\n'));
     int dado_int = stoi(*buffer); //Converte a string em int
     delete buffer;                //Deleta string criada
     return dado_int;
@@ -76,7 +76,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
         c = info[i];
         buffer->push_back(c);
         i++;
-    } while (c != ' ' || c != '\n');
+    } while ((c != ' ') && (c != '\n'));
     i_inicial = stoi(*buffer); //Converte a string em int
     buffer->clear();           //Limpa o buffer
     c = '0';
@@ -87,7 +87,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
         c = info[i];
         buffer->push_back(c);
         i++;
-    } while (c != ' ' || c != '\n');
+    } while ((c != ' ') && (c != '\n'));
     j_inicial = stoi(*buffer); //Converte a string em int
     buffer->clear();           //Limpa o buffer
     c = '0';
@@ -98,7 +98,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
         c = info[i];
         buffer->push_back(c);
         i++;
-    } while (c != ' ' || c != '\n');
+    } while ((c != ' ') && (c != '\n'));
     linhas = stoi(*buffer); //Converte a string em int
     buffer->clear();        //Limpa o buffer
     c = '0';
@@ -109,7 +109,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
         c = info[i];
         buffer->push_back(c);
         i++;
-    } while (c != ' ' || c != '\n');
+    } while ((c != ' ') && (c != '\n'));
     colunas = stoi(*buffer); //Converte a string em int
     buffer->clear();         //Limpa o buffer
     c = '0';

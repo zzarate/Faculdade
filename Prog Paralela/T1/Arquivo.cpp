@@ -61,15 +61,5 @@ void Arquivo::Ler()
  */
 void Arquivo::Escrever(std::string texto)
 {
-    for (int i = 0; i < (int)texto.size(); i++)
-    {
-        std::string byte;
-        for (int j = 0; j < 8; j++)
-        {
-            byte += texto[j + i];
-        }
-        int saida = std::stoi(byte, nullptr, 2);
-        putc(saida, arquivo);
-        i += 7;
-    }
+    
 }
