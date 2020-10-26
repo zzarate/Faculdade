@@ -10,6 +10,7 @@
  */
 
 #include <iostream>
+#include <omp.h> // Cabeçalho da biblioteca OpenMP
 
 #include "Backtracking.h"
 #include "Expansao.h"
@@ -28,7 +29,16 @@ int main(int argc, char *argv[])
     Arquivo arq_entrada(argv[1], 'r'); //Cria um objeto e abre o arquivo passado como parametro
     arq_entrada.Ler();                 //Le os caracteres do arquivo de entrada
 
-    
+    double tIni, tFin, tExec; // Variaveis para armazenar o tempo de execução
+    tIni = omp_get_wtime();   // Pega o tempo do inicio da execução
+
     Grid grid(arq_entrada.buffer); //Cria grid e passa arquivo de entrada
     Expansao expand(grid);         //Cria expansão e passa o grid como argumento
+    Backtracking backt(grid);      //Cria o backtraking e passa o grid como parametro
+
+    tFin = omp_get_wtime(); // Tempo da execução do final
+    tExec = tFin - tIni;    //Calcula o tempo que foi necessário para executar
+    std::cout << "Tempo de execução: " << tExec << "\n";
+
+    exit(0);
 }

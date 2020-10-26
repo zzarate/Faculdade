@@ -9,12 +9,31 @@ Grid::Grid(std::vector<char> info)
 {
     int *i = 0;              //Controle de caractere lido do vetor
     int quant_obstaculo = 0; //Numero de obstaculos no grid
+
     linhas = salvaInfo(info, *i);
     colunas = salvaInfo(info, *i);
     origem.first = salvaInfo(info, *i);
     origem.second = salvaInfo(info, *i);
     quant_obstaculo = salvaInfo(info, *i);
 
+    //Preenche todas as posições do grid con "infinito"(maior valor de long int)
+    for (int k = 0; k < linhas; k++)
+    {
+        for (int l = 0; l < colunas; l++)
+        {
+            grid[k][l] = INT32_MAX;
+        }
+    }
+    
+    //Preenche os obstaculos com -1
+    for (int j = 0; j < quant_obstaculo; j++)
+    {
+        obstaculo(info, *i);
+    }
+}
+
+Grid::~Grid()
+{
 }
 
 /**
@@ -27,7 +46,7 @@ Grid::Grid(std::vector<char> info)
 int Grid::salvaInfo(std::vector<char> info, int &i)
 {
     std::string *buffer = new std::string(); //String temporaria
-    char c;                                  //Varialver auxiliar
+    char c = NULL;                           //Varialver auxiliar
     do
     {
         c = info[i];
@@ -48,10 +67,67 @@ int Grid::salvaInfo(std::vector<char> info, int &i)
  */
 void Grid::obstaculo(std::vector<char> info, int &i)
 {
-}
+    int i_inicial, j_inicial, linhas, colunas;
+    std::string *buffer = new std::string(); //String temporaria
+    char c = NULL;                           //Varialver auxiliar
 
-Grid::~Grid()
-{
+    //Pega o indice i inicial
+    do
+    {
+        c = info[i];
+        buffer->push_back(c);
+        i++;
+    } while (c != ' ' || c != '\n');
+    i_inicial = stoi(*buffer); //Converte a string em int
+    buffer->clear();           //Limpa o buffer
+    c = NULL;
+
+    //Pega o indice j inicial
+    do
+    {
+        c = info[i];
+        buffer->push_back(c);
+        i++;
+    } while (c != ' ' || c != '\n');
+    j_inicial = stoi(*buffer); //Converte a string em int
+    buffer->clear();           //Limpa o buffer
+    c = NULL;
+
+    //Pega o número de linhas
+    do
+    {
+        c = info[i];
+        buffer->push_back(c);
+        i++;
+    } while (c != ' ' || c != '\n');
+    linhas = stoi(*buffer); //Converte a string em int
+    buffer->clear();        //Limpa o buffer
+    c = NULL;
+
+    //Pega o número de colunas
+    do
+    {
+        c = info[i];
+        buffer->push_back(c);
+        i++;
+    } while (c != ' ' || c != '\n');
+    colunas = stoi(*buffer); //Converte a string em int
+    buffer->clear();         //Limpa o buffer
+    c = NULL;
+
+    // Posição incial do obstaculo
+    grid[i_inicial][j_inicial] = -1;
+
+    //Preenche os retangulos com -1
+    for (int k = i_inicial; k < linhas; k++)
+    {
+        for (int l = j_inicial; l < colunas; l++)
+        {
+            /* code */
+        }
+        
+    }
+    
 }
 
 /**
