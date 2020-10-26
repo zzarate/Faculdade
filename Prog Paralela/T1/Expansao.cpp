@@ -23,7 +23,7 @@ Expansao::Expansao(Grid grid)
                 long int i, j; //i e j do vizinho;
                 i = grid.vizinhoI(k, cel);
                 j = grid.vizinhoJ(k, cel);
-                if (i < grid.linhas && j < grid.colunas)
+                if (i < grid.getLinhas() && j < grid.getColunas())
                 {
                     if (grid.grid[i][j] == INT32_MIN)
                     {
