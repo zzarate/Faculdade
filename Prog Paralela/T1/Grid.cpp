@@ -24,7 +24,7 @@ Grid::Grid(std::vector<char> info)
             grid[k][l] = INT32_MAX;
         }
     }
-    
+
     //Preenche os obstaculos com -1
     for (int j = 0; j < quant_obstaculo; j++)
     {
@@ -39,14 +39,14 @@ Grid::~Grid()
 /**
  * @brief Salva tamanho, origem e destino do grid
  * 
- * @param info Vector<char> com os dados a serem lidos
- * @param i Variavel de controle da posição do vetor a ser lido
+ * @param info Vector<char> com as informções lidas do arquivo
+ * @param i Ponteiro com indice da posição do vetor
  * @return int Dado lido do vetor
  */
 int Grid::salvaInfo(std::vector<char> info, int &i)
 {
     std::string *buffer = new std::string(); //String temporaria
-    char c = NULL;                           //Varialver auxiliar
+    char c = '0';                           //Varialver auxiliar
     do
     {
         c = info[i];
@@ -54,7 +54,6 @@ int Grid::salvaInfo(std::vector<char> info, int &i)
         i++;
     } while (c != ' ' || c != '\n');
     int dado_int = stoi(*buffer); //Converte a string em int
-    buffer->clear();              //Limpa o buffer
     delete buffer;                //Deleta string criada
     return dado_int;
 }
@@ -62,14 +61,14 @@ int Grid::salvaInfo(std::vector<char> info, int &i)
 /**
  * @brief Salva e preenche os obstaculos do grid
  * 
- * @param info 
- * @param i 
+ * @param info Vector<char> com as informções lidas do arquivo
+ * @param i Ponteiro com indice da posição do vetor
  */
 void Grid::obstaculo(std::vector<char> info, int &i)
 {
     int i_inicial, j_inicial, linhas, colunas;
     std::string *buffer = new std::string(); //String temporaria
-    char c = NULL;                           //Varialver auxiliar
+    char c = '0';                           //Varialver auxiliar
 
     //Pega o indice i inicial
     do
@@ -80,7 +79,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     } while (c != ' ' || c != '\n');
     i_inicial = stoi(*buffer); //Converte a string em int
     buffer->clear();           //Limpa o buffer
-    c = NULL;
+    c = '0';
 
     //Pega o indice j inicial
     do
@@ -91,7 +90,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     } while (c != ' ' || c != '\n');
     j_inicial = stoi(*buffer); //Converte a string em int
     buffer->clear();           //Limpa o buffer
-    c = NULL;
+    c = '0';
 
     //Pega o número de linhas
     do
@@ -102,7 +101,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     } while (c != ' ' || c != '\n');
     linhas = stoi(*buffer); //Converte a string em int
     buffer->clear();        //Limpa o buffer
-    c = NULL;
+    c = '0';
 
     //Pega o número de colunas
     do
@@ -113,21 +112,71 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     } while (c != ' ' || c != '\n');
     colunas = stoi(*buffer); //Converte a string em int
     buffer->clear();         //Limpa o buffer
-    c = NULL;
-
-    // Posição incial do obstaculo
-    grid[i_inicial][j_inicial] = -1;
+    c = '0';
 
     //Preenche os retangulos com -1
-    for (int k = i_inicial; k < linhas; k++)
+    for (int k = i_inicial; k < (i_inicial+linhas) -1; k++)
     {
-        for (int l = j_inicial; l < colunas; l++)
+        for (int l = j_inicial; l < (j_inicial+colunas) -1; l++)
         {
-            /* code */
+            grid[k][l] = -1;
         }
-        
     }
-    
+
+    delete buffer; //Deleta string criada
+}
+
+/**
+ * @brief 
+ * 
+ * @param k 
+ * @param cel 
+ * @return long int 
+ */
+long int Grid::vizinhoI(int k, celula cel)
+{
+    switch (k)
+    {
+    case 0:
+        return cel.first;
+        break;
+    case 1:
+        return cel.first;
+        break;
+    case 2:
+        return cel.first + 1;
+        break;
+    case 3:
+        return cel.first - 1;
+        break;
+    }
+    return;
+}
+
+/**
+ * @brief 
+ * 
+ * @param k 
+ * @param cel 
+ * @return long int 
+ */
+long int Grid::vizinhoJ(int k, celula cel)
+{
+    switch (k)
+    {
+    case 0:
+        return cel.second - 1;
+        break;
+    case 1:
+        return cel.second + 1;
+        break;
+    case 2:
+        return cel.second;
+        break;
+    case 3:
+        return cel.second;
+        break;
+    }
 }
 
 /**
@@ -179,42 +228,4 @@ celula Grid::getOrigem()
 celula Grid::getDestino()
 {
     return destino;
-}
-
-long int Grid::vizinhoI(int k, celula cel)
-{
-    switch (k)
-    {
-        case 0:
-            return cel.first;
-        break;
-        case 1:
-            return cel.first;
-        break;
-        case 2:
-            return cel.first + 1;
-        break;
-        case 3:
-            return cel.first - 1;
-        break;
-    }
-
-}
-long int Grid::vizinhoJ(int k, celula cel)
-{
-    switch (k)
-    {
-        case 0:
-            return cel.second - 1;
-        break;
-        case 1:
-            return cel.second + 1;
-        break;
-        case 2:
-            return cel.second;
-        break;
-        case 3:
-            return cel.second;
-        break;
-    }
 }

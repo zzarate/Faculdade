@@ -9,13 +9,15 @@
  * 
  */
 
+#ifndef GRID_H
+#define GRID_H
+
+
 #include <iostream>
 #include <omp.h> // Cabeçalho da biblioteca OpenMP
 
 #include "Backtracking.h"
-#include "Expansao.h"
 #include "Arquivo.h"
-#include "Grid.h"
 
 int main(int argc, char *argv[])
 {
@@ -32,9 +34,9 @@ int main(int argc, char *argv[])
     double tIni, tFin, tExec; // Variaveis para armazenar o tempo de execução
     tIni = omp_get_wtime();   // Pega o tempo do inicio da execução
 
-    Grid grid(arq_entrada.buffer); //Cria grid e passa arquivo de entrada
-    Expansao expand(grid);         //Cria expansão e passa o grid como argumento
-    Backtracking backt(grid);      //Cria o backtraking e passa o grid como parametro
+    Grid grid(arq_entrada.buffer);    //Cria grid e passa arquivo de entrada
+    Expansao expand(grid);            //Cria expansão e passa o grid como argumento
+    Backtracking backt(grid, expand); //Cria o backtraking e passa o grid como parametro
 
     tFin = omp_get_wtime(); // Tempo da execução do final
     tExec = tFin - tIni;    //Calcula o tempo que foi necessário para executar
@@ -42,3 +44,5 @@ int main(int argc, char *argv[])
 
     exit(0);
 }
+
+#endif
