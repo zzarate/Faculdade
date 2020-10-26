@@ -33,5 +33,8 @@ public:
     celula getOrigem();
     celula getDestino();
 
+    long int vizinhoI(int k, celula cel); //procurar o vizinho da celula e devover posicao i
+    long int vizinhoJ(int k, celula cel); //procurar o vizinho da celula e devover posicao j
+
     bool achou = false;
 };

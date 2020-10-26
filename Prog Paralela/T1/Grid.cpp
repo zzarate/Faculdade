@@ -104,3 +104,41 @@ celula Grid::getDestino()
 {
     return destino;
 }
+
+long int Grid::vizinhoI(int k, celula cel)
+{
+    switch (k)
+    {
+        case 0:
+            return cel.first;
+        break;
+        case 1:
+            return cel.first;
+        break;
+        case 2:
+            return cel.first + 1;
+        break;
+        case 3:
+            return cel.first - 1;
+        break;
+    }
+
+}
+long int Grid::vizinhoJ(int k, celula cel)
+{
+    switch (k)
+    {
+        case 0:
+            return cel.second - 1;
+        break;
+        case 1:
+            return cel.second + 1;
+        break;
+        case 2:
+            return cel.second;
+        break;
+        case 3:
+            return cel.second;
+        break;
+    }
+}
