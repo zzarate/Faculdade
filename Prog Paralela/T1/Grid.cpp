@@ -7,14 +7,14 @@
  */
 Grid::Grid(std::vector<char> info)
 {
-    int *i = 0;              //Controle de caractere lido do vetor
+    int i = 0;               //Controle de caractere lido do vetor
     int quant_obstaculo = 0; //Numero de obstaculos no grid
 
-    linhas = salvaInfo(info, *i);
-    colunas = salvaInfo(info, *i);
-    origem.first = salvaInfo(info, *i);
-    origem.second = salvaInfo(info, *i);
-    quant_obstaculo = salvaInfo(info, *i);
+    linhas = salvaInfo(info, i);
+    colunas = salvaInfo(info, i);
+    origem.first = salvaInfo(info, i);
+    origem.second = salvaInfo(info, i);
+    quant_obstaculo = salvaInfo(info, i);
 
     //Preenche todas as posições do grid con "infinito"(maior valor de long int)
     for (int k = 0; k < linhas; k++)
@@ -28,7 +28,7 @@ Grid::Grid(std::vector<char> info)
     //Preenche os obstaculos com -1
     for (int j = 0; j < quant_obstaculo; j++)
     {
-        obstaculo(info, *i);
+        obstaculo(info, i);
     }
 }
 
@@ -46,10 +46,10 @@ Grid::~Grid()
 int Grid::salvaInfo(std::vector<char> info, int &i)
 {
     std::string *buffer = new std::string(); //String temporaria
-    char c = '0';                            //Varialver auxiliar
+    char c;                                  //Varialver auxiliar
     do
     {
-        c = info[i];
+        c = info[i]; //Segmentation fault
         buffer->push_back(c);
         i++;
     } while (c != ' ' || c != '\n');

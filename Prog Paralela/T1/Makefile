@@ -10,7 +10,7 @@
 ############### Makefile Trabalho 1  ###############
 TARGET=programa.out
 CXX=g++
-CPPFLAGS=-Wall -pedantic -std=c++11 -g
+CPPFLAGS=-Wall -pedantic -std=c++11 -fopenmp -g
 SRC= $(wildcard *.cpp)
 OBJ= $(SRC:.cpp=.o)
 all: $(OBJ)
