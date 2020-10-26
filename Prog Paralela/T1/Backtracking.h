@@ -11,7 +11,7 @@ class Backtracking
 {
 private:
     std::stack<celula> pilha; // Caminho da origem até o destino
-    bool achou = true;
+
 public:
     Backtracking(Grid grid);
     ~Backtracking();

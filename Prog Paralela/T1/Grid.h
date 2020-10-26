@@ -32,4 +32,6 @@ public:
     long int getvalorCelula (celula cell);
     celula getOrigem();
     celula getDestino();
+
+    bool achou = false;
 };

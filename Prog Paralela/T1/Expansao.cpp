@@ -9,14 +9,14 @@
 Expansao::Expansao(Grid grid)
 {
     fila.push(grid.getOrigem()); //coloca origem na fila
-    while (fila.empty() != 0 && !achou)
+    while (fila.empty() != 0 && !grid.achou)
     {   
         celula cel, celDest;
         cel = fila.front(); //acessa primeiro da fila
         fila.pop();         // Remove célula do início da fila
         celDest = grid.getDestino();
         if (cel.first == celDest.first && cel.second == celDest.second) // cel é o destino
-            achou = true;
+            grid.achou = true;
         else
         {
             for (int k = 0; k < 4; k++)
