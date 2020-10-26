@@ -150,8 +150,7 @@ long int Grid::vizinhoI(int k, celula cel) //k é numero de vez que esta visitan
         return cel.first - 1;
         break;
     }
-    long int aux = -1;
-    return aux;
+    return -1;
 }
 
 /**
@@ -178,8 +177,7 @@ long int Grid::vizinhoJ(int k, celula cel) //k é numero de vez que esta visitan
         return cel.second;
         break;
     }
-    long int aux = -1;
-    return aux;
+    return -1;
 }
 
 /**
