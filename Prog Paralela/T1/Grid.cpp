@@ -133,20 +133,20 @@ void Grid::obstaculo(std::vector<char> info, int &i)
  * @param cel 
  * @return long int 
  */
-long int Grid::vizinhoI(int k, celula cel)
+long int Grid::vizinhoI(int k, celula cel) //k é numero de vez que esta visitando o visinho
 {
     switch (k)
     {
-    case 0:
+    case 0: //na primeira vez o i nao muda, pois a o visinho esta na mesma linha
         return cel.first;
         break;
-    case 1:
+    case 1: //na segunda vez o i nao muda, pois a o visinho esta na mesma linha
         return cel.first;
         break;
-    case 2:
+    case 2: //na terceira vez o i soma 1, pois a o visinho esta em cima
         return cel.first + 1;
         break;
-    case 3:
+    case 3: //na terceira vez o i menos 1, pois a o visinho esta em baixo
         return cel.first - 1;
         break;
     }
@@ -161,20 +161,20 @@ long int Grid::vizinhoI(int k, celula cel)
  * @param cel 
  * @return long int 
  */
-long int Grid::vizinhoJ(int k, celula cel)
+long int Grid::vizinhoJ(int k, celula cel) //k é numero de vez que esta visitando o visinho
 {
     switch (k)
     {
-    case 0:
+    case 0: //na primeira vez o j menos 1, pois a o visinho esta no esquerdo
         return cel.second - 1;
         break;
-    case 1:
+    case 1: //na segunda vez o j mais 1, pois a o visinho esta no direito
         return cel.second + 1;
         break;
-    case 2:
+    case 2: //na terceira vez o j nao muda, pois a o visinho esta na mesma coluna
         return cel.second;
         break;
-    case 3:
+    case 3: //na quarta vez o j nao muda, pois a o visinho esta na mesma coluna
         return cel.second;
         break;
     }
