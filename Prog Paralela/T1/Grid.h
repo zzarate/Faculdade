@@ -7,7 +7,6 @@ typedef std::pair<long int, long int> celula; //Celula [i] [j];
 class Grid
 {
     friend class Expansao;
-    friend class Backtracking;
 
 private:
     long int linhas;  //Quantidade de linhas do grid
