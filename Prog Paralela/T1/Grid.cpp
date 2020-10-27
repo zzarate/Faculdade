@@ -14,27 +14,24 @@ Grid::Grid(std::vector<char> info)
     colunas = salvaInfo(info, i);
     origem.first = salvaInfo(info, i);
     origem.second = salvaInfo(info, i);
+    destino.first = salvaInfo(info, i);
+    destino.second = salvaInfo(info, i);
     quant_obstaculo = salvaInfo(info, i);
 
     //Preenche todas as posições do grid com "infinito"(maior valor de long int)
-    for (int m = 0; m < linhas; m++) { 
+    for (int m = 0; m < linhas; m++)
+    {
         std::vector<long int> v1;
 
-        for (int n = 0; n < colunas; n++) { 
-            v1.push_back(INT32_MAX); 
-        } 
-        // coloca o vetor por vetor na matriz grid 
-        grid.push_back(v1); 
-    } 
-
-    //Preenche todas as posições do grid con "infinito"(maior valor de long int)
-    /*for (long int k = 0; k < linhas; k++)
-    {
-        for (long int l = 0; l < colunas; l++)
+        for (int n = 0; n < colunas; n++)
         {
-            grid[k][l] = INT32_MAX;
+            v1.push_back(INT32_MAX);
         }
-    }*/
+        //Coloca o vetor por vetor na matriz grid
+        grid.push_back(v1);
+    }
+
+    grid[origem.first][origem.second] = 0;
 
     //Preenche os obstaculos com -1
     for (int j = 0; j < quant_obstaculo; j++)
@@ -126,9 +123,9 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     c = '0';
 
     //Preenche os retangulos com -1
-    for (int k = i_inicial; k < (i_inicial + linhas) - 1; k++)
+    for (int k = i_inicial; k < (i_inicial + linhas) -1; k++)
     {
-        for (int l = j_inicial; l < (j_inicial + colunas) - 1; l++)
+        for (int l = j_inicial; l < (j_inicial + colunas) -1; l++)
         {
             grid[k][l] = -1;
         }
