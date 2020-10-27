@@ -1,6 +1,6 @@
 #include "Backtracking.h"
 
-Backtracking::Backtracking(Grid grid, Expansao expand)
+Backtracking::Backtracking(Grid &grid, Expansao &expand)
 {
     if (expand.achou)
     {
@@ -8,7 +8,7 @@ Backtracking::Backtracking(Grid grid, Expansao expand)
         cel = grid.getDestino(); //coloca destino na cel
         pilha.push(grid.getDestino()); //coloca destino na pilha
 
-        while (cel.first != grid.getOrigem().first || cel.second != grid.getOrigem().second) // Enquanto não chegar na origem
+        while (cel.first != grid.getOrigem().first && cel.second != grid.getOrigem().second) // Enquanto não chegar na origem
         {
             for (int k = 0; k < 4; k++) // No máximo 4 vizinhos
             {                  
