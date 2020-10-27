@@ -25,7 +25,7 @@ Expansao::Expansao(Grid grid)
                 j = grid.vizinhoJ(k, cel);
                 if (i < grid.getLinhas() && j < grid.getColunas())
                 {
-                    if (grid.grid[i][j] == INT32_MIN)
+                    if (grid.grid[i][j] == INT32_MAX)
                     {
                         grid.grid[i][j] = grid.grid[cel.first][cel.second] + 1; //ver se a celula vizinho eh igual a celula atual
                         celula viz(i, j);                                       //crio uma celula viziho
