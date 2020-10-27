@@ -16,14 +16,25 @@ Grid::Grid(std::vector<char> info)
     origem.second = salvaInfo(info, i);
     quant_obstaculo = salvaInfo(info, i);
 
+    //Preenche todas as posições do grid com "infinito"(maior valor de long int)
+    for (int m = 0; m < linhas; m++) { 
+        std::vector<long int> v1;
+
+        for (int n = 0; n < colunas; n++) { 
+            v1.push_back(INT32_MAX); 
+        } 
+        // coloca o vetor por vetor na matriz grid 
+        grid.push_back(v1); 
+    } 
+
     //Preenche todas as posições do grid con "infinito"(maior valor de long int)
-    for (int k = 0; k < linhas; k++)
+    /*for (long int k = 0; k < linhas; k++)
     {
-        for (int l = 0; l < colunas; l++)
+        for (long int l = 0; l < colunas; l++)
         {
             grid[k][l] = INT32_MAX;
         }
-    }
+    }*/
 
     //Preenche os obstaculos com -1
     for (int j = 0; j < quant_obstaculo; j++)
