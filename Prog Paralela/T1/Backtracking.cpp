@@ -3,7 +3,7 @@
 /**
  * @brief Construct a new Backtracking:: Backtracking object
  * 
- * @param grid 
+ * @param grid Grid 
  * @param expand 
  */
 Backtracking::Backtracking(Grid &grid, Expansao &expand)
@@ -23,10 +23,10 @@ Backtracking::Backtracking(Grid &grid, Expansao &expand)
                 j = grid.vizinhoJ(k, cel);
                 if (i < grid.getLinhas() && j < grid.getColunas() && i >= 0 && j >= 0)
                 {
-                    if(grid.grid[i][j] == grid.grid[cel.first][cel.second] - 1)
+                    if (grid.grid[i][j] == grid.grid[cel.first][cel.second] - 1)
                     {
-                        celula viz(i, j); //cria uma celula vizinho 
-                        cel = viz;    
+                        celula viz(i, j); //cria uma celula vizinho
+                        cel = viz;
                         pilha.emplace(cel); // Insere célula viz na pilha
                     }
                 }
@@ -40,13 +40,29 @@ Backtracking::~Backtracking()
 }
 
 /**
- * @brief Adiciona
+ * @brief Armazena o menor caminho, e o caminho no std::string menor_caminho
  * 
+ * @param grid Grid do caminho feito
  */
-void Backtracking::menorCaminho(){
-    menor_caminho.push_back(pilha.top().first);
-    menor_caminho+= ' ';
-    menor_caminho.push_back(pilha.top().second);
-    menor_caminho+= '\n';
-    pilha.pop();
+void Backtracking::menorCaminho(Grid grid)
+{
+    std::string s = std::to_string(grid.grid[grid.getDestino().first][grid.getDestino().second]);
+    menor_caminho+= s;
+    s.clear();
+    menor_caminho += "\n";
+    int tam = pilha.size();
+    for (int i = 0; i < tam; i++)
+    {
+        s.clear();
+        s = std::to_string(pilha.top().first);
+        menor_caminho+= s;
+        s.clear();
+        menor_caminho +=  " ";
+        s = std::to_string(pilha.top().second);
+        menor_caminho+= s;
+        s.clear();
+        menor_caminho += "\n";
+        pilha.pop();
+    }
+    menor_caminho.pop_back();
 }

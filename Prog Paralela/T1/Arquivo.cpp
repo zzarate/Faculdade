@@ -34,6 +34,10 @@ Arquivo::Arquivo(char *nome_arq, char op)
     }
 }
 
+/**
+ * @brief Destroy the Arquivo:: Arquivo object
+ * 
+ */
 Arquivo::~Arquivo()
 {
     fclose(arquivo);
@@ -61,5 +65,9 @@ void Arquivo::Ler()
  */
 void Arquivo::Escrever(std::string texto)
 {
-    
+    int tam = texto.size();
+    for (int i = 0; i < tam; i++)
+    {
+        putc(texto[i], arquivo);
+    }
 }
