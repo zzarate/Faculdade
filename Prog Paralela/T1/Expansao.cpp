@@ -5,7 +5,7 @@
  * 
  * @param grid Grid a ser utilizado
  */
-Expansao::Expansao(Grid grid)
+Expansao::Expansao(Grid &grid)
 {
     fila.push(grid.getOrigem()); //coloca origem na fila
     while (!(fila.empty()) && !(achou))
