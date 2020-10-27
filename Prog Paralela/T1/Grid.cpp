@@ -123,10 +123,10 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     c = '0';
 
     //Preenche os retangulos com -1
-    for (int k = i_inicial; k < (i_inicial + linhas) -1; k++)
+    for (int k = i_inicial; k < (i_inicial + linhas); k++)
     {
-        for (int l = j_inicial; l < (j_inicial + colunas) -1; l++)
-        {
+        for (int l = j_inicial; l < (j_inicial + colunas); l++)
+        {   
             grid[k][l] = -1;
         }
     }
