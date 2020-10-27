@@ -15,6 +15,7 @@ Backtracking::Backtracking(Grid grid, Expansao expand)
                 long int i, j; //i e j do vizinho;
                 i = grid.vizinhoI(k, cel);
                 j = grid.vizinhoJ(k, cel);
+                
                 if(grid.grid[i][j] == grid.grid[cel.first][cel.second] - 1)
                 {
                     celula viz(i, j); //cria uma celula vizinho 

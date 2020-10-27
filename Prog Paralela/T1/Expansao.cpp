@@ -8,7 +8,7 @@
 Expansao::Expansao(Grid grid)
 {
     fila.push(grid.getOrigem()); //coloca origem na fila
-    while (fila.empty() != 0 && !achou)
+    while (!(fila.empty()) && !(achou))
     {
         celula cel, celDest;
         cel = fila.front(); //acessa primeiro da fila
@@ -23,7 +23,7 @@ Expansao::Expansao(Grid grid)
                 long int i, j; //i e j do vizinho;
                 i = grid.vizinhoI(k, cel);
                 j = grid.vizinhoJ(k, cel);
-                if (i < grid.getLinhas() && j < grid.getColunas())
+                if (i < grid.getLinhas() && j < grid.getColunas() && i >= 0 && j >= 0)
                 {
                     if (grid.grid[i][j] == INT32_MAX)
                     {
