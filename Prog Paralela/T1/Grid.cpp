@@ -145,13 +145,13 @@ void Grid::obstaculo(std::vector<char> info, int &i)
 }
 
 /**
- * @brief 
+ * @brief Calcula o vizinho da celula e devolve o i da matriz de acordo com o k
  * 
- * @param k 
- * @param cel 
+ * @param k é numero de vez que esta visitando o vizinho, 0-esq, 1-dir, 2-cima, 3-baixo
+ * @param cel é uma celula
  * @return long int 
  */
-long int Grid::vizinhoI(int k, celula cel) //k é numero de vez que esta visitando o visinho
+long int Grid::vizinhoI(int k, celula cel) 
 {
     switch (k)
     {
@@ -172,13 +172,13 @@ long int Grid::vizinhoI(int k, celula cel) //k é numero de vez que esta visitan
 }
 
 /**
- * @brief 
+ * @brief Calcula o vizinho da celula e devolve o j da matriz de acordo com o k
  * 
- * @param k 
- * @param cel 
+ * @param k é numero de vez que esta visitando o vizinho, 0-esq, 1-dir, 2-cima, 3-baixo
+ * @param cel é uma celula
  * @return long int 
  */
-long int Grid::vizinhoJ(int k, celula cel) //k é numero de vez que esta visitando o visinho
+long int Grid::vizinhoJ(int k, celula cel) 
 {
     switch (k)
     {
