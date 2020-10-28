@@ -7,6 +7,7 @@
  * @copyright Copyright (c) 2020
  * 
  */
+#include <omp.h> // Cabeçalho da biblioteca OpenMP
 
 #include "Grid.h"
 
@@ -28,6 +29,7 @@ Grid::Grid(std::vector<char> info)
     destino.second = salvaInfo(info, i);
     quant_obstaculo = salvaInfo(info, i);
 
+    //#pragma omp parallel for 
     //Preenche todas as posições do grid com "infinito"(maior valor de long int)
     for (int m = 0; m < linhas; m++)
     {
@@ -132,6 +134,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     buffer->clear();         //Limpa o buffer
     c = '0';
 
+    //#pragma omp parallel for 
     //Preenche os retangulos com -1
     for (int k = i_inicial; k < (i_inicial + linhas); k++)
     {
