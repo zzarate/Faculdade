@@ -32,6 +32,7 @@ Backtracking::Backtracking(Grid &grid, Expansao &expand)
                 }
             }
         }
+        pilha.push(grid.getOrigem());
     }
 }
 
