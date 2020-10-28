@@ -1,6 +1,7 @@
 /**
  * Versão sequencial
  * 
+ * Usar make para compilar OU
  * Comando de compilação(sequencial): 
  * g++ -Wall -pedantic -std=c++11 -fopenmp -g -o rotseq *.cpp *.h
  * Comando de execução (sequencial):
