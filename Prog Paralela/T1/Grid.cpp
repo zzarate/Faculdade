@@ -1,3 +1,13 @@
+/**
+ * @file Grid.cpp
+ * @brief Implementação da classe Grid.h
+ * @version 1.0
+ * @date 2020-10-27
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
+
 #include "Grid.h"
 
 /**

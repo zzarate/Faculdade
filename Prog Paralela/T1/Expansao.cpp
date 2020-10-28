@@ -1,3 +1,12 @@
+/**
+ * @file Expansao.cpp
+ * @brief Implementação da classe Expansao.h
+ * @version 1.0
+ * @date 2020-10-27
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
 #include "Expansao.h"
 
 /**

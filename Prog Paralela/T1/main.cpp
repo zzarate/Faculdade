@@ -1,10 +1,11 @@
 /**
  * Versão sequencial
  * 
+ * Usar make para compilar OU
  * Comando de compilação(sequencial): 
  * g++ -Wall -pedantic -std=c++11 -fopenmp -g -o rotseq *.cpp *.h
  * Comando de execução (sequencial):
- * .\rotseq entrada.txt saida.txt
+ * ./rotseq entrada.txt saida.txt
  * 
  * @file main.cpp
  * @author João Víctor Zárate, Julio Huang

@@ -1,10 +1,19 @@
+/**
+ * @file Backtracking.cpp
+ * @brief Implementação da classe Backtracking.h
+ * @version 1.0
+ * @date 2020-10-27
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
 #include "Backtracking.h"
 
 /**
  * @brief Construct a new Backtracking:: Backtracking object
  * 
- * @param grid Grid 
- * @param expand 
+ * @param grid Grid a ser percorrido o caminho
+ * @param expand Objeto de expansão do caminho
  */
 Backtracking::Backtracking(Grid &grid, Expansao &expand)
 {
@@ -46,23 +55,23 @@ Backtracking::~Backtracking()
  */
 void Backtracking::menorCaminho(Grid grid)
 {
-    std::string s = std::to_string(grid.grid[grid.getDestino().first][grid.getDestino().second]);
-    menor_caminho+= s;
-    s.clear();
+    std::string s = std::to_string(grid.grid[grid.getDestino().first][grid.getDestino().second]); //Converte para string o tamanho do caminho
+    menor_caminho += s;                                                                           //Armazena o tamanho do camniho na string
+    s.clear();                                                                                    //Limpa a string
     menor_caminho += "\n";
     int tam = pilha.size();
-    for (int i = 0; i < tam; i++)
+    for (int i = 0; i < tam; i++) // Preenche a string de saida com as celulas do caminho
     {
-        s.clear();
-        s = std::to_string(pilha.top().first);
-        menor_caminho+= s;
-        s.clear();
-        menor_caminho +=  " ";
-        s = std::to_string(pilha.top().second);
-        menor_caminho+= s;
-        s.clear();
+        s.clear();                             //Limpa a string
+        s = std::to_string(pilha.top().first); //Converte para string o elemento da primeira celula
+        menor_caminho += s;
+        s.clear(); //Limpa a string
+        menor_caminho += " ";
+        s = std::to_string(pilha.top().second); //Converte para string o elemento da segunda celula
+        menor_caminho += s;
+        s.clear(); //Limpa a string
         menor_caminho += "\n";
-        pilha.pop();
+        pilha.pop(); //Remove celula lida da pilha
     }
     menor_caminho.pop_back();
 }

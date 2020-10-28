@@ -1,8 +1,12 @@
 /**
- * @brief 
+ * @file Backtracking.h
+ * @brief Operações do backtracking
+ * @version 1.0
+ * @date 2020-10-27
+ * 
+ * @copyright Copyright (c) 2020
  * 
  */
-
 #include "Expansao.h"
 
 #include <stack>
