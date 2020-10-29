@@ -29,8 +29,8 @@ Grid::Grid(std::vector<char> info)
     destino.second = salvaInfo(info, i);
     quant_obstaculo = salvaInfo(info, i);
 
-    //#pragma omp parallel for 
     //Preenche todas as posições do grid com "infinito"(maior valor de long int)
+    #pragma omp parallel for schedule(dynamic,4)
     for (int m = 0; m < linhas; m++)
     {
         std::vector<long int> v1;
@@ -40,7 +40,11 @@ Grid::Grid(std::vector<char> info)
             v1.push_back(INT32_MAX);
         }
         //Coloca o vetor por vetor na matriz grid
-        grid.push_back(v1);
+        #pragma omp critical
+        {
+            grid.push_back(v1);
+        }
+        
     }
 
     grid[origem.first][origem.second] = 0;
@@ -134,8 +138,9 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     buffer->clear();         //Limpa o buffer
     c = '0';
 
-    //#pragma omp parallel for 
+    
     //Preenche os retangulos com -1
+    #pragma omp parallel for schedule(dynamic,4) //
     for (int k = i_inicial; k < (i_inicial + linhas); k++)
     {
         for (int l = j_inicial; l < (j_inicial + colunas); l++)
