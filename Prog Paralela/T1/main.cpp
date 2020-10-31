@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     double tIni, tFin, tExec; // Variaveis para armazenar o tempo de execução
     tIni = omp_get_wtime();   // Pega o tempo do inicio da execução
 
-    Grid grid(arq_entrada.buffer);            //Cria grid e passa arquivo de entrada
+    Grid grid(arq_entrada.buffer);    //Cria grid e passa arquivo de entrada
     Expansao expand(grid);            //Cria expansão e passa o grid como argumento
     Backtracking backt(grid, expand); //Cria o backtraking e passa o grid como parametro
     backt.menorCaminho(grid);         //Armazena o menor caminho em uma string
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     std::cout << "Tempo de execução: " << tExec << "\n";
 
     //Imprimir menor caminho
-    Arquivo arq_saida (argv[2], 'w');
+    Arquivo arq_saida(argv[2], 'w');
     arq_saida.Escrever(backt.menor_caminho);
 
     exit(0);

@@ -29,8 +29,8 @@ Grid::Grid(std::vector<char> info)
     destino.second = salvaInfo(info, i);
     quant_obstaculo = salvaInfo(info, i);
 
-    //Preenche todas as posições do grid com "infinito"(maior valor de long int)
-    #pragma omp parallel for schedule(dynamic,4)
+//Preenche todas as posições do grid com "infinito"(maior valor de long int)
+#pragma omp parallel for schedule(dynamic, 4)
     for (int m = 0; m < linhas; m++)
     {
         std::vector<long int> v1;
@@ -39,12 +39,11 @@ Grid::Grid(std::vector<char> info)
         {
             v1.push_back(INT32_MAX);
         }
-        //Coloca o vetor por vetor na matriz grid
-        #pragma omp critical
+//Coloca o vetor por vetor na matriz grid
+#pragma omp critical
         {
             grid.push_back(v1);
         }
-        
     }
 
     grid[origem.first][origem.second] = 0;
@@ -138,13 +137,12 @@ void Grid::obstaculo(std::vector<char> info, int &i)
     buffer->clear();         //Limpa o buffer
     c = '0';
 
-    
-    //Preenche os retangulos com -1
-    #pragma omp parallel for schedule(dynamic,4) //
+//Preenche os retangulos com -1
+#pragma omp parallel for schedule(dynamic, 4) //
     for (int k = i_inicial; k < (i_inicial + linhas); k++)
     {
         for (int l = j_inicial; l < (j_inicial + colunas); l++)
-        {   
+        {
             grid[k][l] = -1;
         }
     }
@@ -159,7 +157,7 @@ void Grid::obstaculo(std::vector<char> info, int &i)
  * @param cel é uma celula
  * @return long int 
  */
-long int Grid::vizinhoI(int k, celula cel) 
+long int Grid::vizinhoI(int k, celula cel)
 {
     switch (k)
     {
@@ -186,7 +184,7 @@ long int Grid::vizinhoI(int k, celula cel)
  * @param cel é uma celula
  * @return long int 
  */
-long int Grid::vizinhoJ(int k, celula cel) 
+long int Grid::vizinhoJ(int k, celula cel)
 {
     switch (k)
     {
