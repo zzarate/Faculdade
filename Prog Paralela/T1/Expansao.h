@@ -10,10 +10,12 @@
 #include <queue>
 #include "Grid.h"
 
+using namespace std;
+
 class Expansao
 {
 private:
-    std::queue<celula> fila; //Fila a ser armazenado as celulas a serem expandidas
+    queue<celula> fila; //Fila a ser armazenado as celulas a serem expandidas
 
 public:
     Expansao(Grid &grid);

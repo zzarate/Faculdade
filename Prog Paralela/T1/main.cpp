@@ -26,12 +26,14 @@
 #include "Backtracking.h"
 #include "Arquivo.h"
 
+using namespace std;
+
 int main(int argc, char *argv[])
 {
     //Verifica se todos os parametros foram passados
     if (argc < 3)
     {
-        std::cout << "Erro! Deve-se passar 3 argumentos:\n";
+        cout << "Erro! Deve-se passar 3 argumentos:\n";
         exit(1);
     }
 
@@ -48,7 +50,7 @@ int main(int argc, char *argv[])
 
     tFin = omp_get_wtime(); // Tempo da execução do final
     tExec = tFin - tIni;    //Calcula o tempo que foi necessário para executar
-    std::cout << "Tempo de execução: " << tExec << "\n";
+    cout << "Tempo de execução: " << tExec << "\n";
 
     //Imprimir menor caminho
     Arquivo arq_saida(argv[2], 'w');

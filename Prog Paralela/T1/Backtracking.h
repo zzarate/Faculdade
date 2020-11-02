@@ -8,13 +8,14 @@
  * 
  */
 #include "Expansao.h"
-
 #include <stack>
+
+using namespace std;
 
 class Backtracking
 {
 private:
-    std::stack<celula> pilha; // Caminho da origem até o destino
+    stack<celula> pilha; // Caminho da origem até o destino
 
 public:
     Backtracking(Grid &grid, Expansao &expand);

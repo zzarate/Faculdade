@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Arquivo.h"
 
+using namespace std;
+
 /**
  * @brief Construct a new Arquivo:: Arquivo object.
  * Recebe nome do arquivo, operação que irá realizar e abre o arquivo
@@ -29,7 +31,7 @@ Arquivo::Arquivo(char *nome_arq, char op)
         break;
 
     default:
-        std::cout << "Erro ao abrir arquivo!";
+        cout << "Erro ao abrir arquivo!";
         break;
     }
 }

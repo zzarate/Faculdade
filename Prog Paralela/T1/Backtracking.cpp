@@ -55,7 +55,7 @@ Backtracking::~Backtracking()
  */
 void Backtracking::menorCaminho(Grid grid)
 {
-    std::string s = std::to_string(grid.grid[grid.getDestino().first][grid.getDestino().second]); //Converte para string o tamanho do caminho
+    string s = to_string(grid.grid[grid.getDestino().first][grid.getDestino().second]); //Converte para string o tamanho do caminho
     menor_caminho += s;                                                                           //Armazena o tamanho do camniho na string
     s.clear();                                                                                    //Limpa a string
     menor_caminho += "\n";
@@ -63,11 +63,11 @@ void Backtracking::menorCaminho(Grid grid)
     for (int i = 0; i < tam; i++) // Preenche a string de saida com as celulas do caminho
     {
         s.clear();                             //Limpa a string
-        s = std::to_string(pilha.top().first); //Converte para string o elemento da primeira celula
+        s = to_string(pilha.top().first); //Converte para string o elemento da primeira celula
         menor_caminho += s;
         s.clear(); //Limpa a string
         menor_caminho += " ";
-        s = std::to_string(pilha.top().second); //Converte para string o elemento da segunda celula
+        s = to_string(pilha.top().second); //Converte para string o elemento da segunda celula
         menor_caminho += s;
         s.clear(); //Limpa a string
         menor_caminho += "\n";
