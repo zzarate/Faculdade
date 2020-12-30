@@ -100,10 +100,7 @@ static void PlainServerEventsAcceptEvent(int fd, int to_read_sz, int thrd_id, vo
 {
 	CommEvTCPServer *ev_tcpsrv      = base_ptr;
 	CommEvTCPServerConn *conn_hnd	= CommEvTCPServerConnArenaGrab(ev_tcpsrv, fd);
-	short random = arc4random() % 3;
 
-	if (1 == random)
-		CommEvTCPServerConnClose(conn_hnd);
 
 	KQBASE_LOG_PRINTF(glob_log_base, LOGTYPE_INFO, LOGCOLOR_GREEN, "FD [%d] - Accept client from IP [%s]\n", fd, conn_hnd->string_ip);
 	return;
@@ -113,13 +110,11 @@ static void PlainServerEventsDataEvent(int fd, int to_read_sz, int thrd_id, void
 {
 	CommEvTCPServer *ev_tcpsrv      = base_ptr;
 	CommEvTCPServerConn *conn_hnd	= CommEvTCPServerConnArenaGrab(ev_tcpsrv, fd);
-	short random = arc4random() % 3;
 
-	KQBASE_LOG_PRINTF(glob_log_base, LOGTYPE_INFO, LOGCOLOR_CYAN, "FD [%d] - Data event with [%d] bytes\n", fd, to_read_sz);
+	KQBASE_LOG_PRINTF(glob_log_base, LOGTYPE_INFO, LOGCOLOR_CYAN, "FD [%d] - Data event with [%d] bytes [%s]\n", fd, to_read_sz, MemBufferDeref(conn_hnd->iodata.read_buffer));
 	CommEvTCPServerConnAIOWriteString(conn_hnd, "aaaaaaaaaaaaaaa", NULL, NULL);
 
-	if (1 == random)
-		CommEvTCPServerConnClose(conn_hnd);
+
 
 	return;
 }

@@ -154,14 +154,13 @@ static void PlainClientEventsConnectEvent(int fd, int to_read_sz, int thrd_id, v
 {
 	int op_status;
 	CommEvTCPClient *ev_tcpcli      = base_ptr;
-	unsigned short random			= (arc4random() % (sizeof(glob_payload) - 16));
 
 	assert(ev_tcpcli->socket_fd == fd);
 
 	if (COMM_CLIENT_STATE_CONNECTED == ev_tcpcli->socket_state)
 	{
 		/* Write PAYLOAD */
-		op_status = CommEvTCPClientAIOWrite(ev_tcpcli, (char*)&glob_payload, random, NULL, NULL);
+		op_status = CommEvTCPClientAIOWrite(ev_tcpcli, "teste", 5	, NULL, NULL);
 		KQBASE_LOG_PRINTF(glob_log_base, LOGTYPE_INFO, LOGCOLOR_GREEN, "FD [%d] - Connect OK IP [%s] - Wrote [%d] bytes - STATUS [%d]\n",
 				fd, ev_tcpcli->cfg.hostname, random, op_status);
 
