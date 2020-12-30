@@ -1,11 +1,11 @@
 /**
- * Versão sequencial
+ * Versão paralela
  * 
  * Usar make para compilar OU
- * Comando de compilação(sequencial): 
- * g++ -Wall -pedantic -std=c++11 -fopenmp -g -o rotseq *.cpp *.h
- * Comando de execução (sequencial):
- * ./rotseq entrada.txt saida.txt
+ * Comando de compilação(paralela): 
+ * g++ -Wall -pedantic -std=c++11 -fopenmp -g -o rotpar *.cpp *.h
+ * Comando de execução (paralela):
+ * ./rotpar entrada.txt saida.txt
  * 
  * @file main.cpp
  * @author João Víctor Zárate, Julio Huang

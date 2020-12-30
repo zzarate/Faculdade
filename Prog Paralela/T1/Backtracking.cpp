@@ -56,13 +56,13 @@ Backtracking::~Backtracking()
 void Backtracking::menorCaminho(Grid grid)
 {
     string s = to_string(grid.grid[grid.getDestino().first][grid.getDestino().second]); //Converte para string o tamanho do caminho
-    menor_caminho += s;                                                                           //Armazena o tamanho do camniho na string
-    s.clear();                                                                                    //Limpa a string
+    menor_caminho += s;                                                                 //Armazena o tamanho do camniho na string
+    s.clear();                                                                          //Limpa a string
     menor_caminho += "\n";
     int tam = pilha.size();
     for (int i = 0; i < tam; i++) // Preenche a string de saida com as celulas do caminho
     {
-        s.clear();                             //Limpa a string
+        s.clear();                        //Limpa a string
         s = to_string(pilha.top().first); //Converte para string o elemento da primeira celula
         menor_caminho += s;
         s.clear(); //Limpa a string
