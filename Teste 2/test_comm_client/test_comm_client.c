@@ -24,8 +24,8 @@ int main(int argc, char **argv)
 	EvKQBaseConf kq_conf;
 	int i;
 
-	glob_state		= 0;
-	glob_cur_idx	= 0;
+	glob_state						= 0;
+	glob_cur_idx					= 0;
 
 	/* Clean STACK */
 	memset(&glob_tcpclient_conf, 0, sizeof(CommEvTCPClientConf));
@@ -40,19 +40,19 @@ int main(int argc, char **argv)
 	log_conf.flags.dump_on_signal	= 1;
 
 	/* Create event base and log base */
-	glob_ev_base				= EvKQBaseNew(&kq_conf);
-	glob_log_base				= EvKQBaseLogBaseNew(glob_ev_base, &log_conf);
-	glob_ev_base->log_base		= glob_log_base;
+	glob_ev_base					= EvKQBaseNew(&kq_conf);
+	glob_log_base					= EvKQBaseLogBaseNew(glob_ev_base, &log_conf);
+	glob_ev_base->log_base			= glob_log_base;
 
 	mainCreateDNSBase();
 
 	/* Fill in TCPCLIENT CONF */
 	glob_tcpclient_conf.resolv_base			= glob_ev_dns;
 	glob_tcpclient_conf.log_base			= glob_log_base;
-	glob_tcpclient_conf.cli_proto			= COMM_CLIENTPROTO_SSL;
-	glob_tcpclient_conf.hostname			= "smsgateway.me";
-	glob_tcpclient_conf.sni_hostname_str	= "smsgateway.me";
-	glob_tcpclient_conf.port				= 1000;
+	glob_tcpclient_conf.cli_proto			= COMM_CLIENTPROTO_PLAIN;
+	glob_tcpclient_conf.hostname			= "127.0.0.1";
+	glob_tcpclient_conf.sni_hostname_str	= "127.0.0.1";
+	glob_tcpclient_conf.port				= 999;
 
 
 	/* Set timeout information */
