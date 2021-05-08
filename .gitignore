@@ -1,4 +1,5 @@
 #VS code settings
+.vscode/*
 
 #Estrutura de dados
 #Arquivo de teste
@@ -12,6 +13,11 @@ Prog Paralela/T1/debug.log
 Prog Paralela/T1/entrada.txt
 Prog Paralela/T1/saida-seq.txt
 Prog Paralela/T1/saida-par.txt
+
+# Compiled source #
+###################
+*.o
+*.so
 
 
 
