@@ -7,7 +7,7 @@
 #                                                 #
 ###################################################
 ############### Makefile Trabalho 1 ###############
-TARGET=sh
+TARGET_EXEC=sh
 
 BUILD_DIR := ./build
 SRC_DIRS := ./src
