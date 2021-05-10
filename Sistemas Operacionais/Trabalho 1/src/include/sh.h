@@ -6,6 +6,9 @@
 #define TRABALHO_1_SH_H
 
 #include <list>
+#include <iostream>
+#include <cstdio>
+#include <string.h>
 #define KILL SIGKILL
 
 class sh
