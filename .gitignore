@@ -19,5 +19,6 @@ Prog Paralela/T1/saida-par.txt
 *.o
 *.so
 
+.out
 
 
