@@ -9,6 +9,7 @@
 #include <iostream>
 #include <cstdio>
 #include <string.h>
+#include <signal.h>
 #define KILL SIGKILL
 
 class sh
