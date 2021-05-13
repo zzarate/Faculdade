@@ -4,29 +4,49 @@
 
 #include "include/sh.h"
 
-static void end_handler(int signal) {
-    // printf("MyShell$ ");
+static void end_handler(int)
+{
+    printf("Comando não encontrado.\n");
 }
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     char cmd[100];
+    sh *shell = new sh();
 
-    if ((signal(SIGINT, end_handler) == SIG_ERR)) {
+    if ((signal(SIGINT, end_handler) == SIG_ERR))
+    {
         printf("Error while setting a signal handler\n");
         exit(EXIT_FAILURE);
-    }   
+    }
 
     while (1)
     {
         printf("\nMyShell$ ");
         fgets(cmd, 100, stdin);
 
-        if (strncmp(cmd, "exit", 4) == 0 || strncmp(cmd, "^D", 2) == 0) { //FIXME
+        if (strncmp(cmd, "exit", 4) == 0 || shell.checkExit())
+        { //FIXME
             exit(0);
         }
     }
-    
+
+    return EXIT_SUCCESS;
+}
+
+/**
+ * Verificar se eh EOF (Ctrl + D)
+ * @return 1 se for EOF, 0 se não for EOF
+ * */
+int sh::checkExit() 
+{
+    if (feof(stdin))
+        return 1;
+    int c = getc(stdin);
+    if (c == EOF)
+        return 1;
+    ungetc(c, stdin);
+    return 0;
 }
 
 /**
@@ -34,10 +54,8 @@ int main (int argc, char *argv[])
  */
 void sh::print_command_history()
 {
-
 }
 
 void sh::print_command_history(int n)
 {
-
 }

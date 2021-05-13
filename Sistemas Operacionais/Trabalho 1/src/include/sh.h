@@ -17,6 +17,7 @@ class sh
 private:
 	void print_command_history(int n);
 	void print_command_history();
+	int checkExit();
 	int exit ();
 
 	std::list<char> command_list;
