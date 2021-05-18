@@ -26,7 +26,13 @@ public:
 	Shell();
 	~Shell();
 	int checkExit();
-	static void handle_error(int);
+	static void cmd_handler(int);
+
+	/**
+	 * Variaveis de Ambiente
+	 */
+
+	std::string MYPS1;
 
 };
 #endif //TRABALHO_1_SHELL_H

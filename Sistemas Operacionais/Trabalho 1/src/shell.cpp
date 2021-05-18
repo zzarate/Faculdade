@@ -10,22 +10,25 @@ int main(int argc, char *argv[])
 	char cmd_str[100];
     Shell sh; //Objeto Shell
 
-
-    if ((signal(SIGINT, sh.handle_error) == SIG_ERR))
+    if ((signal(SIGINT, sh.cmd_handler) == SIG_ERR))
     {
-        printf("Error while setting a signal handler\n");
         exit(EXIT_FAILURE);
     }
 
     while (1)
     {
-        printf("\nMyShell$ ");
+        std::cout << sh.MYPS1;
         fgets(cmd_str, 100, stdin);
 
-        if (strncmp(cmd_str, "exit", 4) == 0 || sh.checkExit())
+        if (!strncmp(cmd_str, "exit", 4) || sh.checkExit())
         { //FIXME
             exit(0);
         }
+
+        if (!strncmp(cmd_str, "kill", 4))
+		{
+			std::cout << "kill detect\n"; //TODO
+		}
     }
 
     return EXIT_SUCCESS;
@@ -36,7 +39,7 @@ int main(int argc, char *argv[])
  */
 Shell::Shell()
 {
-
+	MYPS1 = "tecii$: "; //Inicializa o prompt
 }
 
 /**
@@ -50,7 +53,7 @@ Shell::~Shell()
 
 /**
  * Verificar se eh EOF (Ctrl + D)
- * @return 1 se for EOF, 0 se não for EOF
+ * @return 1 se for EOF, 0 caso contrario
  * */
 int Shell::checkExit()
 {
@@ -66,7 +69,7 @@ int Shell::checkExit()
 /**
  * Caso o comando não seja reconhecido exibe uma mensagem de erro
  */
-void Shell::handle_error(int)
+void Shell::cmd_handler(int)
 {
 	printf("Comando não encontrado.\n");
 }
