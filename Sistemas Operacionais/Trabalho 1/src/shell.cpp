@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
         std::cout << sh.MYPS1;
         fgets(cmd_str, 100, stdin);
 
+
+		/**
+		 * Verify commands
+		 */
+
         if (!strncmp(cmd_str, "exit", 4) || sh.checkExit())
         { //FIXME
             exit(0);
@@ -28,6 +33,16 @@ int main(int argc, char *argv[])
         if (!strncmp(cmd_str, "kill", 4))
 		{
 			std::cout << "kill detect\n"; //TODO
+		}
+
+        if (!strncmp(cmd_str, "export", 6))
+		{
+			std::cout << "export detect\n"; //TODO
+		}
+
+        if (!strncmp(cmd_str, "echo", 4))
+		{
+			std::cout << "echo detect\n"; //TODO
 		}
     }
 

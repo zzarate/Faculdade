@@ -12,6 +12,11 @@
 #include <string.h>
 #include <signal.h>
 
+/********************
+ * Local Includes	*
+ ********************/
+#include "Arquivo.h"
+
 class Shell
 {
 private:
@@ -31,7 +36,6 @@ public:
 	/**
 	 * Variaveis de Ambiente
 	 */
-
 	std::string MYPS1;
 
 };
