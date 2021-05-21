@@ -20,15 +20,15 @@ int main(int argc, char *argv[])
         std::getline(std::cin, cmd);
 
         /* Verify exit*/
-		if (!cmd.compare(0, 4, "exit") || sh.checkExit())
+		if (!cmd.compare(0, 4, "exit"))
 		{
-			exit(0);
+			return 0;
 		}
 
         sh.verify_command(cmd);
     }
 
-    exit(0);
+    return 0;
 }
 
 /**
@@ -67,26 +67,22 @@ void Shell::verify_command(std::string cmd)
 }
 
 /**
- * Verificar se eh EOF (Ctrl + D)
- * @return 1 se for EOF, 0 caso contrario
- * */
-int Shell::checkExit()
-{
-    if (feof(stdin))
-        return 1;
-    int c = getc(stdin);
-    if (c == EOF)
-        return 1;
-    ungetc(c, stdin);
-    return 0;
-}
-
-/**
  * Caso o comando não seja reconhecido exibe uma mensagem de erro
  */
 void Shell::cmd_handler(int)
 {
-	printf("Comando não encontrado.\n");
+	if (feof(stdin))
+	{
+		std::cout << "\n";
+		exit(0);
+	}
+	int c = getc(stdin);
+	if (c == EOF)
+	{
+		std::cout << "\n";
+		exit(0);
+	}
+	ungetc(c, stdin);
 }
 
 /**

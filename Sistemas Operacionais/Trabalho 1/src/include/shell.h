@@ -22,7 +22,6 @@ class Shell
 private:
 	void print_command_history(int n);
 	void print_command_history();
-	int exit ();
 
 	std::list<char> command_list;
 	std::list<char> path_list;
@@ -30,14 +29,16 @@ private:
 public:
 	Shell();
 	~Shell();
-	int checkExit();
 	void verify_command(std::string cmd);
 	static void cmd_handler(int);
+
+	std::string cmd;
 
 	/**
 	 * Variaveis de Ambiente
 	 */
 	std::string MYPS1;
+
 
 };
 #endif //TRABALHO_1_SHELL_H
