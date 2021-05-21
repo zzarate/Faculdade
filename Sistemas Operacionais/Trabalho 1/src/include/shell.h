@@ -22,7 +22,6 @@ class Shell
 private:
 	void print_command_history(int n);
 	void print_command_history();
-	void verify_command(std::string cmd);
 	int exit ();
 
 	std::list<char> command_list;
@@ -32,6 +31,7 @@ public:
 	Shell();
 	~Shell();
 	int checkExit();
+	void verify_command(std::string cmd);
 	static void cmd_handler(int);
 
 	/**

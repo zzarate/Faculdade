@@ -6,8 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-//    char *cmd_str; //String do comando digitado
-	char cmd_str[100];
+	std::string cmd;
     Shell sh; //Objeto Shell
 
     if ((signal(SIGINT, sh.cmd_handler) == SIG_ERR))
@@ -18,35 +17,18 @@ int main(int argc, char *argv[])
     while (1)
     {
         std::cout << sh.MYPS1;
-        fgets(cmd_str, 100, stdin);
+        std::getline(std::cin, cmd);
 
-
-		/**
-		 * Verify commands
-		 */
-
-        if (!strncmp(cmd_str, "exit", 4) || sh.checkExit())
-        { //FIXME
-            exit(0);
-        }
-
-        if (!strncmp(cmd_str, "kill", 4))
+        /* Verify exit*/
+		if (!cmd.compare(0, 4, "exit") || sh.checkExit())
 		{
-			std::cout << "kill detect\n"; //TODO
+			exit(0);
 		}
 
-        if (!strncmp(cmd_str, "export", 6))
-		{
-			std::cout << "export detect\n"; //TODO
-		}
-
-        if (!strncmp(cmd_str, "echo", 4))
-		{
-			std::cout << "echo detect\n"; //TODO
-		}
+        sh.verify_command(cmd);
     }
 
-    return EXIT_SUCCESS;
+    exit(0);
 }
 
 /**
@@ -68,6 +50,20 @@ Shell::~Shell()
 void Shell::verify_command(std::string cmd)
 {
 
+	if (!cmd.compare(0, 4, "kill", 4))
+	{
+		std::cout << "kill detect\n"; //TODO
+	}
+
+	if (!cmd.compare(0, 6, "export", 6))
+	{
+		std::cout << "export detect\n"; //TODO
+	}
+
+	if (!cmd.compare(0, 4, "echo", 4))
+	{
+		std::cout << "echo detect\n"; //TODO
+	}
 }
 
 /**
