@@ -4,7 +4,7 @@
 class Arquivo
 {
 public:
-    Arquivo(char *nome_arq, char op);
+    Arquivo(char *nome_arq, char *op);
     ~Arquivo();
     void Escrever(std::string texto);
     void Ler();

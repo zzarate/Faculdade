@@ -65,6 +65,10 @@ Shell::~Shell()
 
 }
 
+void Shell::verify_command(std::string cmd)
+{
+
+}
 
 /**
  * Verificar se eh EOF (Ctrl + D)
