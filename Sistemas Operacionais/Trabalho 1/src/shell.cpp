@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-    // signal(SIGINT, sh.cmd_handler);
 
     while (1)
     {
@@ -46,6 +45,7 @@ int main(int argc, char *argv[])
  */
 Shell::Shell()
 {
+//	Shell::dir = getcwd(); //Salva diretorio atual
     MYPS1 = "tecii$: "; //Inicializa o prompt
 }
 
@@ -66,6 +66,7 @@ void Shell::verify_command(std::string cmd)
     else if (!cmd.compare(0, 4, "kill", 4))
     {
         std::cout << "kill detect\n"; //TODO
+
     }
     else if (!cmd.compare(0, 6, "export", 6))
     {
@@ -75,6 +76,12 @@ void Shell::verify_command(std::string cmd)
     {
         std::cout << "echo detect\n"; //TODO
     }
+    else if (!cmd.compare(0, 2, "cd", 2))
+	{
+
+	}
+    else
+		Shell::exec_app(cmd);
 }
 
 void Shell::set_command(std::string cmd)
@@ -87,12 +94,11 @@ std::list<std::string> Shell::get_command()
     return command_list;
 }
 /**
- * Caso o comando não seja reconhecido exibe uma mensagem de erro
+ * Required
  */
 void Shell::cmd_handler(int sig)
 {
-    // signal(sig, SIG_IGN);
-    // signal(SIGINT, cmd_handler);
+	//Do nothing
 }
 
 /**
@@ -138,10 +144,20 @@ void Shell::print_command_history()
     }
 }
 
-/**
- * TODO
- * @param n
- */
-void Shell::print_command_history(int n)
+int Shell::change_dir()
 {
+}
+
+int Shell::exec_app(std::string cmd)
+{
+//	pid_t pid = fork();
+//
+//	if (pid == -1)
+//	{
+//		return 1;
+//	}
+//	else if (pid == 0)
+//	{
+//		if ((execvp(parsed[0], parsed) < 0))
+//	}
 }

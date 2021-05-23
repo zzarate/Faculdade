@@ -11,6 +11,7 @@
 
 #include <string.h>
 #include <signal.h>
+#include <unistd.h>
 
 /********************
  * Local Includes	*
@@ -21,21 +22,25 @@ class Shell
 {
 private:
 	void print_command_history(int n);
+	int exec_app(std::string cmd);
+	int change_dir();
 
 	std::list<std::string> command_list;
 	std::list<char> path_list;
 
+	std::string dir;
+
 public:
 	Shell();
 	~Shell();
-	void verify_command(std::string cmd);
+
 	static void cmd_handler(int);
 
+	void verify_command(std::string cmd);
 	void set_command(std::string cmd);
-	std::list<std::string> get_command();
-
 	void print_command_history();
 	int checkExit();
+	std::list<std::string> get_command();
 
 	std::string cmd;
 
