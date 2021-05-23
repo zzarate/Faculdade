@@ -21,9 +21,8 @@ class Shell
 {
 private:
 	void print_command_history(int n);
-	void print_command_history();
 
-	std::list<char> command_list;
+	std::list<std::string> command_list;
 	std::list<char> path_list;
 
 public:
@@ -31,6 +30,12 @@ public:
 	~Shell();
 	void verify_command(std::string cmd);
 	static void cmd_handler(int);
+
+	void set_command(std::string cmd);
+	std::list<std::string> get_command();
+
+	void print_command_history();
+	int checkExit();
 
 	std::string cmd;
 
