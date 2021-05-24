@@ -74,7 +74,7 @@ void Shell::verify_command(std::string cmd)
     }
     else if (!cmd.compare(0, 4, "echo", 4))
     {
-        std::cout << "echo detect\n"; //TODO
+        Shell::echo(cmd);
     }
     else if (!cmd.compare(0, 2, "cd", 2))
 	{
@@ -84,15 +84,24 @@ void Shell::verify_command(std::string cmd)
 		Shell::exec_app(cmd);
 }
 
+/**
+ * Salva a string passada como argumento na lista de comandos exectados
+ * @param cmd std::string do comando digitado
+ */
 void Shell::set_command(std::string cmd)
 {
     command_list.push_front(cmd);
 }
 
+/**
+ *  Obtem a lista de comandos executados
+ * @return std::list<std::string> com todos os comandos executados
+ */
 std::list<std::string> Shell::get_command()
 {
     return command_list;
 }
+
 /**
  * Required
  */
@@ -118,7 +127,7 @@ int Shell::checkExit()
 }
 
 /**
- * TODO
+ * Imprime os 50 ultimos comandos digitados na shell
  */
 void Shell::print_command_history()
 {
@@ -160,4 +169,10 @@ int Shell::exec_app(std::string cmd)
 //	{
 //		if ((execvp(parsed[0], parsed) < 0))
 //	}
+}
+
+void Shell::echo(std::string s)
+{
+	std::string echo = s.substr (5,-1);
+	std::cout << echo + "\n";
 }
