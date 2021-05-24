@@ -10,9 +10,11 @@
 #include <list>
 
 #include <string.h>
+#include <cstring>
 #include <signal.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 /********************
  * Local Includes	*

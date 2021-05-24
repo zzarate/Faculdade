@@ -155,7 +155,10 @@ int Shell::change_dir()
 
 int Shell::exec_app(std::string cmd)
 {
-    char **buf;
+    // char** parsed;
+    // *parsed = new char [cmd.length()+1];
+    // std::strcpy (*parsed, cmd.c_str());
+
     pid_t pid = fork();
 
     if (pid == -1)
@@ -164,7 +167,7 @@ int Shell::exec_app(std::string cmd)
     }
     else if (pid == 0)
     {
-        if ((execvp(cmd.c_str(), buf) < 0))
+        if (execvp(cmd.c_str(), parsed) < 0)
         {
             std::cout << "Comando nao encontrado" << std::endl;
         }
