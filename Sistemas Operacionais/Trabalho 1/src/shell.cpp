@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
+
     while (1)
     {
         std::cout << sh.MYPS1;
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
  */
 Shell::Shell()
 {
-    //	Shell::dir = getcwd(); //Salva diretorio atual
+//	Shell::dir = getcwd(); //Salva diretorio atual
     MYPS1 = "tecii$: "; //Inicializa o prompt
 }
 
@@ -53,6 +54,7 @@ Shell::Shell()
  */
 Shell::~Shell()
 {
+
 }
 
 void Shell::verify_command(std::string cmd)
@@ -64,6 +66,7 @@ void Shell::verify_command(std::string cmd)
     else if (!cmd.compare(0, 4, "kill", 4))
     {
         std::cout << "kill detect\n"; //TODO
+
     }
     else if (!cmd.compare(0, 6, "export", 6))
     {
@@ -74,10 +77,11 @@ void Shell::verify_command(std::string cmd)
         Shell::echo(cmd);
     }
     else if (!cmd.compare(0, 2, "cd", 2))
-    {
-    }
+	{
+		Shell::change_dir(cmd);
+	}
     else
-        Shell::exec_app(cmd);
+		Shell::exec_app(cmd);
 }
 
 /**
@@ -103,7 +107,7 @@ std::list<std::string> Shell::get_command()
  */
 void Shell::cmd_handler(int sig)
 {
-    //Do nothing
+	//Do nothing
 }
 
 /**
@@ -149,15 +153,32 @@ void Shell::print_command_history()
     }
 }
 
-int Shell::change_dir()
+int Shell::change_dir(std::string dir)
 {
+	return 0;
 }
 
+/**
+ * Executa um novo processo
+ * @param cmd nome do processo a ser executado
+ * @return retorna 1 em caso de erro e 0 caso contrario
+ */
 int Shell::exec_app(std::string cmd)
 {
-    // char** parsed;
-    // *parsed = new char [cmd.length()+1];
-    // std::strcpy (*parsed, cmd.c_str());
+	std::string args_str;
+	std::string proc;
+	size_t pos;
+	char *args_ptr;
+
+	pos  = cmd.find_first_of(" ");
+    proc = cmd.substr(0, pos - 1);
+
+    if (pos != std::string::npos)
+    {
+		args_str = cmd.substr(pos + 1, std::string::npos);
+		std::strcpy(args_ptr, args_str.c_str());
+	}
+
 
     pid_t pid = fork();
 
@@ -167,15 +188,40 @@ int Shell::exec_app(std::string cmd)
     }
     else if (pid == 0)
     {
-        if (execvp(cmd.c_str(), parsed) < 0)
+        if (execvp(proc.c_str(), &args_ptr) < 0)
         {
-            std::cout << "Comando nao encontrado" << std::endl;
+            std::cout << proc << " não encontrado" << std::endl;
         }
-        return 0;
+        exit(0);
     }
     else
     {
         wait(NULL);
         return 0;
     }
+}
+
+/**
+ * Imprime cadeia de caracteres
+ * @param s cadeia de carateres a ser imprimida
+ */
+void Shell::echo(std::string s)
+{
+	std::string echo = s.substr(4, std::string::npos);
+
+	if(echo.length() > 4)
+		echo.assign(echo,1,echo.length());
+
+	if (!echo.compare(0, 1, "$", 1))
+		Shell::print_env(echo.substr(1, std::string::npos));
+	else
+		std::cout << echo + "\n";
+}
+
+/**
+ * Imprime variavel de ambiente passada como argumento
+ * @param var nome da variavel de ambiente
+ */
+void Shell::print_env(std::string var)
+{
 }

@@ -25,9 +25,11 @@ class Shell
 {
 private:
 	void print_command_history(int n);
-	int exec_app(std::string cmd);
-	int change_dir();
+	void print_env(std::string var);
+	void export_env(std::string s);
 	void echo(std::string s);
+	int exec_app(std::string cmd);
+	int change_dir(std::string dir);
 
 	std::list<std::string> command_list;
 	std::list<char> path_list;

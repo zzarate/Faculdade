@@ -21,5 +21,7 @@ Um interpretador de comandos é um programa que recebe comandos de um usuário e
 - [ ] 16-
 - [ ] 17-
 - [ ] 18-
-- [ ] 19-
+- [ ] 19-Implementação do comando echo para visualizaço do conteudo de variaveis de ambiente
+  e impressao de cadeias de caracteres. Por exemplo, echo $MYPATH mostra o conteudo da
+  variavel de ambiente MYPATH
 - [ ] 20-
