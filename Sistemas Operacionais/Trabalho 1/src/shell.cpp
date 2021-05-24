@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
 
-
     while (1)
     {
         std::cout << sh.MYPS1;
@@ -45,7 +44,7 @@ int main(int argc, char *argv[])
  */
 Shell::Shell()
 {
-//	Shell::dir = getcwd(); //Salva diretorio atual
+    //	Shell::dir = getcwd(); //Salva diretorio atual
     MYPS1 = "tecii$: "; //Inicializa o prompt
 }
 
@@ -54,7 +53,6 @@ Shell::Shell()
  */
 Shell::~Shell()
 {
-
 }
 
 void Shell::verify_command(std::string cmd)
@@ -66,7 +64,6 @@ void Shell::verify_command(std::string cmd)
     else if (!cmd.compare(0, 4, "kill", 4))
     {
         std::cout << "kill detect\n"; //TODO
-
     }
     else if (!cmd.compare(0, 6, "export", 6))
     {
@@ -77,11 +74,10 @@ void Shell::verify_command(std::string cmd)
         Shell::echo(cmd);
     }
     else if (!cmd.compare(0, 2, "cd", 2))
-	{
-
-	}
+    {
+    }
     else
-		Shell::exec_app(cmd);
+        Shell::exec_app(cmd);
 }
 
 /**
@@ -107,7 +103,7 @@ std::list<std::string> Shell::get_command()
  */
 void Shell::cmd_handler(int sig)
 {
-	//Do nothing
+    //Do nothing
 }
 
 /**
@@ -159,20 +155,24 @@ int Shell::change_dir()
 
 int Shell::exec_app(std::string cmd)
 {
-//	pid_t pid = fork();
-//
-//	if (pid == -1)
-//	{
-//		return 1;
-//	}
-//	else if (pid == 0)
-//	{
-//		if ((execvp(parsed[0], parsed) < 0))
-//	}
-}
+    char **buf;
+    pid_t pid = fork();
 
-void Shell::echo(std::string s)
-{
-	std::string echo = s.substr (5,-1);
-	std::cout << echo + "\n";
+    if (pid == -1)
+    {
+        return 1;
+    }
+    else if (pid == 0)
+    {
+        if ((execvp(cmd.c_str(), buf) < 0))
+        {
+            std::cout << "Comando nao encontrado" << std::endl;
+        }
+        return 0;
+    }
+    else
+    {
+        wait(NULL);
+        return 0;
+    }
 }
