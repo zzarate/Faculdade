@@ -7,18 +7,26 @@
   extra-point functionality.
  */
 // TODO: inicializes a queue
-void queue_init(node_t * queue)
+void queue_init(node_t *queue)
 {
+  node_t *nova;
+
+	nova = (node_t *) malloc (sizeof (node_t));
+  nova->prox = NULL;
+  queue = nova;
 }
 
 // TODO: returns the first element of the queue
-node_t *dequeue(node_t * queue)
+node_t *dequeue(node_t *queue)
 {
+  if (queue->prox != NULL) {
+    return queue->prox->chave;
+  }
 	return NULL;
 }
 
 // TODO: inserts a node in a queue
-void enqueue(node_t * queue, node_t * item)
+void enqueue(node_t *queue, node_t *item)
 {
 }
 

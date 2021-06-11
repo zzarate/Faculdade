@@ -4,6 +4,8 @@
 #include <stddef.h>
 
 typedef struct node {
+   int chave;
+	struct node *prox;
 } node_t;
 
 /* Initialize a queue */
