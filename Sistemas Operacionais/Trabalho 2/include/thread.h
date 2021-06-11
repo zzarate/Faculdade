@@ -19,7 +19,9 @@ typedef enum {
 
 typedef struct tcb {
 	// TODO: define the fields for you TCB
-	
+	uint64_t regs[NUMBER_OF_REGISTERS];
+	uint64_t flag;
+
 	status_t status;
 } tcb_t;
 
