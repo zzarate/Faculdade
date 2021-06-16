@@ -18,6 +18,7 @@ int tid_global = 0;
  */
 int thread_init()
 {
+
 	return 0;
 }
 

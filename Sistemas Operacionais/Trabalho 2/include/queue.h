@@ -4,19 +4,19 @@
 #include <stddef.h>
 
 typedef struct node {
-   int chave;
-	struct node *prox;
+	void key;
+	struct node *next;
 } node_t;
 
 /* Initialize a queue */
-void queue_init(node_t * queue);
+void queue_init(node_t *queue);
 
 /* Remove and return the item at the front of the queue Return NULL if the
    queue is empty */
-node_t *dequeue(node_t * queue);
+node_t *dequeue(node_t *queue);
 
 /* Add item to the back of the queue */
-void enqueue(node_t * queue, node_t * item);
+void enqueue(node_t *queue, node_t *item);
 
 /* Determine if the queue is empty.
  * Returns 1 if the queue is empty.
