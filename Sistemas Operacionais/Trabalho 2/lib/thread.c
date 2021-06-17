@@ -6,8 +6,8 @@
 #include <queue.h>
 #include <thread.h>
 
-node_t	ready_queue;
-tcb_t	*current_running;
+node_t ready_queue;
+tcb_t  *current_running;
 
 int tid_global = 0;
 
@@ -18,7 +18,18 @@ int tid_global = 0;
  */
 int thread_init()
 {
+	if (ready_queue.key)
+	{
+		return -EINVAL;
+	}
 
+	tcb_t *new_tcb = (tcb_t *)malloc(sizeof(tcb_t));
+	node_t *main_thread;
+
+	queue_init(main_thread);
+
+	main_thread->key = new_tcb;
+	current_running = main_thread->key;
 	return 0;
 }
 
@@ -35,7 +46,7 @@ int thread_yield()
 }
 
 // TODO: waits for a thread to finish
-int thread_join(thread_t *thread, int *retval) 
+int thread_join(thread_t *thread, int *retval)
 {
 	return 0;
 }
@@ -55,4 +66,3 @@ void scheduler()
 void exit_handler()
 {
 }
-
