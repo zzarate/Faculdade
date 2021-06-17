@@ -29,10 +29,11 @@ node_t *dequeue(node_t *queue)
 
 		queue = n->next;
 
-		free(n);
-		return queue;
+		// free(n);
+		return n;
 	} else if (queue) {
-		free(queue);
+		// free(queue);
+		return queue;
 	}
 	return NULL;
 }
