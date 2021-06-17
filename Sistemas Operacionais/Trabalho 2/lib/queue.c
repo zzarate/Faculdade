@@ -16,6 +16,7 @@ void queue_init(node_t *queue)
 	queue = new_node;
 }
 
+// returns the first element of the queue
 node_t *dequeue(node_t *queue)
 {
 	/* Sanitize */
@@ -36,6 +37,7 @@ node_t *dequeue(node_t *queue)
 	return NULL;
 }
 
+// inserts a node in a queue
 void enqueue(node_t *queue, node_t *item)
 {
 	node_t *n;
@@ -54,6 +56,7 @@ void enqueue(node_t *queue, node_t *item)
 	return;
 }
 
+// checks if a queue is empty
 int is_empty(node_t *queue)
 {
 	if(!queue)
