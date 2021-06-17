@@ -20,7 +20,7 @@ node_t *dequeue(node_t *queue)
 {
 	/* Sanitize */
 	if(!queue)
-		return void;
+		return NULL;
 
 	if (queue->next != NULL) {
 		node_t *n;

@@ -4,7 +4,7 @@
 #include <stddef.h>
 
 typedef struct node {
-	void key;
+	void *key;
 	struct node *next;
 } node_t;
 
