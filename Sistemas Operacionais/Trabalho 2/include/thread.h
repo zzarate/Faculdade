@@ -11,7 +11,7 @@ void scheduler_entry();
 void exit_handler();
 
 typedef enum {
-	      FIRST_TIME,
+	      FIRST_TIME, // Não é relevante
 	      READY,
 	      BLOCKED,
 	      EXITED
@@ -21,6 +21,8 @@ typedef struct tcb {
 	uint64_t regs[NUMBER_OF_REGISTERS];
 	uint64_t flag;
 
+	void *stack;
+	void *sp; //Apotar para final da pilha
 	status_t status;
 } tcb_t;
 
