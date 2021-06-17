@@ -36,6 +36,12 @@ int thread_init()
 // TODO: creates a new thread and inserts in the ready queue.
 int thread_create(thread_t *thread, void *(*start_routine)(void *), void *arg)
 {
+	tcb_t *new_tcb = (tcb_t *)malloc(sizeof(tcb_t));
+	node_t *new_node = (node_t *) malloc(sizeof(node_t));
+
+	new_node->key = new_tcb;
+
+
 	return 0;
 }
 
