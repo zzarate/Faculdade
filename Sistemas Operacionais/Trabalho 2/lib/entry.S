@@ -2,6 +2,7 @@
 	.equ	CONTEXT_SIZE,136
 	
 #define	SAVE_CONTEXT(offset) \
+SAVE_CONTEXT:
 	movq	%rsp,scratch			  	  ; \
 	movq	current_running,%rsp		  ; \
 	leaq	((offset)+CONTEXT_SIZE)(%rsp),%rsp ; \
@@ -25,6 +26,7 @@
 	movq	scratch,%rsp
 
 #define RESTORE_CONTEXT(offset) \
+RESTORE_CONTEXT:
 	movq	current_running,%rsp ; \
 	leaq	(offset)(%rsp),%rsp  ; \
 	popfq			     	 ; \
