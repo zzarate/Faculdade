@@ -1,7 +1,7 @@
 	.equ	USER,16
 	.equ	CONTEXT_SIZE,136
 	
-#define	SAVE_CONTEXT(offset) \
+# define	SAVE_CONTEXT(offset) \
 SAVE_CONTEXT:
 	movq	%rsp,scratch			  	  ; \
 	movq	current_running,%rsp		  ; \
@@ -25,7 +25,7 @@ SAVE_CONTEXT:
 	pushfq					  	  ; \
 	movq	scratch,%rsp
 
-#define RESTORE_CONTEXT(offset) \
+# define RESTORE_CONTEXT(offset) \
 RESTORE_CONTEXT:
 	movq	current_running,%rsp ; \
 	leaq	(offset)(%rsp),%rsp  ; \
@@ -49,6 +49,7 @@ RESTORE_CONTEXT:
 	
 	.section .data
 scratch: .quad	0
+offset: .quad 16
 	
 	.text
 	.globl	scheduler_entry
