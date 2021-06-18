@@ -23,10 +23,10 @@ int thread_init()
 		return -EINVAL;
 	}
 
-	tcb_t *new_tcb = (tcb_t *) malloc(sizeof(tcb_t));
-	node_t *main_thread;
+	tcb_t *new_tcb = malloc(sizeof(tcb_t));
+	node_t *main_thread = NULL;
 
-	queue_init(main_thread);
+	main_thread = queue_init(main_thread);
 
 	main_thread->key = new_tcb;
 	current_running = main_thread->key;
@@ -40,10 +40,12 @@ int thread_create(thread_t *thread, void *(*start_routine)(void *), void *arg)
 	node_t *new_node = (node_t *) malloc(sizeof(node_t));
 	new_tcb->stack = malloc(STACK_SIZE); //Alocar em byte
 
-	new_tcb->sp = new_tcb->stack + STACK_SIZE - 1;
+	// new_tcb->sp = new_tcb->stack + STACK_SIZE - 1;
 	new_tcb->status = READY;
 
-	new_node->key = new_tcb;
+	thread->tcb = new_tcb;
+
+	new_node->key = thread->tcb;
 
 	enqueue(&ready_queue, new_node);
 
@@ -54,6 +56,7 @@ int thread_create(thread_t *thread, void *(*start_routine)(void *), void *arg)
 int thread_yield()
 {
 	// Chamar a função scheduler_entry do entry.S
+	scheduler_entry();
 	return 0;
 }
 
@@ -66,12 +69,20 @@ int thread_join(thread_t *thread, int *retval)
 	if (tcb->status == EXITED)
 		return 0;
 	
+	while (1)
+	{
+		if (!thread_yield())
+			return 0;
+	}
 	
+	return 0;
 }
 
 // TODO: marks a thread as EXITED and terminates the thread
 void thread_exit(int status)
 {
+	status = EXITED;
+	current_running->status = status;
 }
 
 // TODO: selects the next thread to execute
