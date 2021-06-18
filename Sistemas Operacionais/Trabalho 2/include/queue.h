@@ -9,7 +9,7 @@ typedef struct node {
 } node_t;
 
 /* Initialize a queue */
-void queue_init(node_t *queue);
+node_t *queue_init(node_t *queue);
 
 /* Remove and return the item at the front of the queue Return NULL if the
    queue is empty */

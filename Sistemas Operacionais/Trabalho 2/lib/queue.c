@@ -7,13 +7,12 @@
   extra-point functionality.
  */
 
-void queue_init(node_t *queue)
+node_t *queue_init(node_t *queue)
 {
-	node_t *new_node;
+	queue = (node_t *) malloc(sizeof(node_t));
+	queue->next = NULL;
 
-	new_node = (node_t *) malloc(sizeof(node_t));
-	new_node->next = NULL;
-	queue = new_node;
+	return queue;
 }
 
 // returns the first element of the queue
